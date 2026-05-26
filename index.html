@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Australia Live — The Story of Australian Concert Culture</title>
+
+  <!-- Vega-Lite Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO — Concert Stage
+     ═══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="beams">
+    <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+    <div class="beam b4"></div><div class="beam b5"></div><div class="beam b6"></div>
+  </div>
+
+  <div class="stage-wrap">
+    <svg viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concert stage illustration">
+      <defs>
+        <radialGradient id="sg" cx="50%" cy="100%" r="60%">
+          <stop offset="0%" stop-color="#FFD166" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#FFD166" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <ellipse cx="340" cy="308" rx="285" ry="26" fill="#0a0a0a"/>
+      <ellipse cx="340" cy="306" rx="255" ry="18" fill="url(#sg)"/>
+      <rect x="70" y="172" width="540" height="128" rx="3" fill="#111" stroke="#1e1e1e"/>
+      <rect x="70" y="172" width="540" height="9" fill="#181818"/>
+      <rect x="70" y="297" width="540" height="3" rx="1" fill="#FFD166" opacity="0.45" filter="url(#glow)"/>
+      <rect x="50" y="48" width="580" height="12" rx="6" fill="#181818" stroke="#262626"/>
+      <rect x="70" y="60" width="10" height="120" fill="#161616" stroke="#222"/>
+      <rect x="600" y="60" width="10" height="120" fill="#161616" stroke="#222"/>
+      <g filter="url(#glow)">
+        <ellipse cx="112" cy="57" rx="12" ry="6" fill="#FFD166"/>
+        <line x1="112" y1="63" x2="93" y2="192" stroke="#FFD166" stroke-width="1.5" opacity="0.22"/>
+        <ellipse cx="184" cy="57" rx="12" ry="6" fill="#EF233C"/>
+        <line x1="184" y1="63" x2="198" y2="192" stroke="#EF233C" stroke-width="1.5" opacity="0.22"/>
+        <ellipse cx="260" cy="57" rx="12" ry="6" fill="#06D6A0"/>
+        <line x1="260" y1="63" x2="254" y2="192" stroke="#06D6A0" stroke-width="1.5" opacity="0.18"/>
+        <ellipse cx="340" cy="57" rx="12" ry="6" fill="#9B5DE5"/>
+        <line x1="340" y1="63" x2="340" y2="192" stroke="#9B5DE5" stroke-width="1.5" opacity="0.18"/>
+        <ellipse cx="420" cy="57" rx="12" ry="6" fill="#FFD166"/>
+        <line x1="420" y1="63" x2="426" y2="192" stroke="#FFD166" stroke-width="1.5" opacity="0.22"/>
+        <ellipse cx="496" cy="57" rx="12" ry="6" fill="#F4A261"/>
+        <line x1="496" y1="63" x2="482" y2="192" stroke="#F4A261" stroke-width="1.5" opacity="0.22"/>
+        <ellipse cx="566" cy="57" rx="12" ry="6" fill="#EF233C"/>
+        <line x1="566" y1="63" x2="574" y2="192" stroke="#EF233C" stroke-width="1.5" opacity="0.22"/>
+      </g>
+      <rect x="72" y="160" width="52" height="148" rx="2" fill="#0e0e0e" stroke="#1e1e1e"/>
+      <rect x="78" y="168" width="40" height="27" rx="2" fill="#0a0a0a" stroke="#191919"/>
+      <rect x="78" y="201" width="40" height="27" rx="2" fill="#0a0a0a" stroke="#191919"/>
+      <circle cx="98" cy="244" r="12" fill="#090909" stroke="#191919"/>
+      <rect x="556" y="160" width="52" height="148" rx="2" fill="#0e0e0e" stroke="#1e1e1e"/>
+      <rect x="562" y="168" width="40" height="27" rx="2" fill="#0a0a0a" stroke="#191919"/>
+      <rect x="562" y="201" width="40" height="27" rx="2" fill="#0a0a0a" stroke="#191919"/>
+      <circle cx="582" cy="244" r="12" fill="#090909" stroke="#191919"/>
+      <rect x="190" y="80" width="300" height="98" rx="3" fill="#0c0c0c" stroke="#FFD166" stroke-width="1.1" opacity="0.88"/>
+      <polyline points="200,130 220,107 240,143 260,100 280,135 300,104 320,131 340,94 360,133 380,110 400,131 420,115 438,131 456,121 470,131 488,127 500,131"
+        stroke="#FFD166" stroke-width="1.7" fill="none" opacity="0.75"/>
+      <line x1="340" y1="183" x2="340" y2="295" stroke="#272727" stroke-width="2"/>
+      <line x1="316" y1="295" x2="364" y2="295" stroke="#272727" stroke-width="2"/>
+      <ellipse cx="340" cy="184" rx="6" ry="9" fill="#1e1e1e" stroke="#2e2e2e"/>
+      <g fill="#131313">
+        <ellipse cx="132" cy="322" rx="19" ry="14"/><circle cx="132" cy="303" r="9"/>
+        <line x1="132" y1="311" x2="115" y2="294" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+        <line x1="132" y1="311" x2="149" y2="298" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="178" cy="325" rx="17" ry="13"/><circle cx="178" cy="308" r="8"/>
+        <line x1="178" y1="315" x2="162" y2="299" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="222" cy="322" rx="18" ry="14"/><circle cx="222" cy="304" r="9"/>
+        <line x1="222" y1="312" x2="238" y2="296" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="458" cy="322" rx="18" ry="14"/><circle cx="458" cy="304" r="9"/>
+        <line x1="458" y1="312" x2="442" y2="296" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="502" cy="325" rx="17" ry="13"/><circle cx="502" cy="308" r="8"/>
+        <line x1="502" y1="315" x2="518" y2="299" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="548" cy="322" rx="19" ry="14"/><circle cx="548" cy="303" r="9"/>
+        <line x1="548" y1="311" x2="532" y2="294" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+        <line x1="548" y1="311" x2="564" y2="298" stroke="#131313" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <h1 class="hero-title">AUSTRALIA<em>LIVE</em></h1>
+  <p class="hero-sub">The story of Australia's concert culture &nbsp;&middot;&nbsp; 2004 &ndash; 2024</p>
+
+  <div class="stats-strip">
+    <div class="stat-card">
+      <span class="stat-num">$3.4B</span>
+      <span class="stat-lbl">Revenue in 2024</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">31.4M</span>
+      <span class="stat-lbl">Tickets sold in 2024</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num">535</span>
+      <span class="stat-lbl">Festivals per year</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>The show begins</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ACT 1 — THE RISE
+     ═══════════════════════════════════════════ -->
+<section id="act1">
+  <div class="act-head fi">
+    <div class="act-bg-num">01</div>
+    <div class="act-tag">Act One</div>
+    <h2 class="act-h">The Rise</h2>
+    <p class="act-p">From modest local gigs to a $3.4 billion industry &mdash; two decades of near-unbroken growth, a pandemic that wiped out the entire industry in a single year, and a record-breaking comeback that nobody predicted.</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="wrap">
+    <p class="callout fi">
+      In 2024, Australians attended live concerts more than at any other point in recorded history &mdash;
+      <strong>31.4 million tickets</strong> and <strong>$3.4 billion</strong> in revenue.
+      That surpasses the combined attendance at every AFL, NRL, A-League and cricket match played
+      in Australia in the same year.
+    </p>
+
+    <!-- Chart 1: Revenue Overview + Detail -->
+    <div class="gf fi">
+      <div class="box">
+        <div class="box-tag">Chart 01 &mdash; Revenue 2004&ndash;2024 &middot; Overview + Detail &middot; Source: Live Performance Australia</div>
+        <div class="box-h">Twenty Years of Growth</div>
+        <p class="box-p">Total live music ticket revenue across all performance categories in Australia.
+          The COVID-19 crash of 2020 wiped out <strong>77% of revenue in a single year</strong> &mdash;
+          the largest drop ever recorded in Australian live music history.
+          The 2021&ndash;24 recovery then broke every previous record.</p>
+        <div class="chart-instructions">
+          <span class="ci-item"><span class="ci-icon">⇔</span> Drag the bottom mini-chart to filter time period</span>
+          <span class="ci-item"><span class="ci-icon">◎</span> Hover any point for exact figures</span>
+        </div>
+        <div id="chart1"></div>
+        <div class="chart-caption">Mini-chart: drag to filter above &middot; Hover points for values &middot; Click ••• to open in Vega Editor</div>
+      </div>
+    </div>
+
+    <!-- Charts 2 & 3 -->
+    <div class="g2 fi">
+      <div class="box t">
+        <div class="box-tag">Chart 02 &mdash; Year-on-Year Revenue Change &middot; Source: Live Performance Australia</div>
+        <div class="box-h">Boom, Bust &amp; Bounce</div>
+        <p class="box-p">Percentage change in total revenue from the previous year.
+          In the entire 20-year period, revenue fell in only <strong>two years</strong> &mdash;
+          the 2020 COVID crash (&minus;77%) and a minor 2015 dip (&minus;6%).
+          The 2021&ndash;23 rebound is the fastest recovery ever recorded.</p>
+        <div id="chart2"></div>
+        <div class="chart-caption">Red = revenue decline &middot; Teal = growth &middot; Hover for exact %</div>
+      </div>
+
+      <div class="box r">
+        <div class="box-tag">Chart 03 &mdash; Ticket Price vs Revenue Index &middot; Source: Live Performance Australia</div>
+        <div class="box-h">Paying More, Buying More</div>
+        <p class="box-p">Average ticket price (bars, left axis) overlaid with the revenue index
+          relative to 2019 (gold line, right axis).
+          The dashed reference line marks the pre-pandemic baseline at index 100.
+          By 2024 both price and revenue exceeded pre-pandemic levels, showing
+          <strong>demand, not just price inflation, is driving the boom</strong>.</p>
+        <div id="chart3"></div>
+        <div class="chart-caption">Bars = avg ticket price &middot; Gold line = revenue index vs 2019 &middot; Dashed = 2019 baseline</div>
+      </div>
+    </div>
+
+    <!-- Chart 13: Stacked area -->
+    <div class="gf fi">
+      <div class="box w">
+        <div class="box-tag">Chart 13 &mdash; Revenue Split: Contemporary vs All Other Categories &middot; Source: Live Performance Australia</div>
+        <div class="box-h">How the Industry Split Over Time</div>
+        <p class="box-p">Stacked area chart showing contemporary music revenue (gold) versus all other
+          live performance categories (dark) from 2004 to 2024.
+          Contemporary music &mdash; rock, pop, hip-hop, electronic &mdash; grew from 43% of total revenue
+          in 2017 to <strong>54% in 2024</strong>.
+          The Taylor Swift, Coldplay, and P!nk stadium tours drove this surge.</p>
+        <div id="chart13"></div>
+        <div class="chart-caption">Gold = Contemporary Music &middot; Dark = All Other Categories &middot; Hover for annual values</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ACT 2 — THE MAP
+     ═══════════════════════════════════════════ -->
+<section id="act2">
+  <div class="act-head fi">
+    <div class="act-bg-num">02</div>
+    <div class="act-tag c-teal">Act Two</div>
+    <h2 class="act-h">The Map</h2>
+    <p class="act-p">Live music in Australia is geographically concentrated in two states.
+      Where you live determines how much live music you can access &mdash; and that gap is widening every year.</p>
+    <div class="rule t"></div>
+  </div>
+
+  <div class="wrap">
+    <p class="callout t fi">
+      New South Wales and Victoria together account for <strong>64% of all live music revenue</strong>
+      and <strong>61% of attendance</strong> &mdash; while housing just 52% of Australia&rsquo;s population.
+      Queensland, with 20% of the population, captures only 16% of revenue.
+    </p>
+
+    <!-- Chart 4: Geographic map -->
+    <div class="gf fi">
+      <div class="box t">
+        <div class="box-tag">Chart 04 &mdash; Geographic Map (Mercator Projection) &middot; Sources: Live Performance Australia; Creative Australia Soundcheck 2024</div>
+        <div class="box-h">Where the Music Lives</div>
+        <p class="box-p">Gold-to-orange bubbles show live music revenue by state in 2023 &mdash;
+          <strong>larger and brighter bubble = more revenue</strong>.
+          Diamond markers show the locations of 39 major Australian music festivals,
+          colour-coded by genre.</p>
+        <div class="chart-instructions">
+          <span class="ci-item"><span class="ci-icon">◎</span> Hover a bubble for state revenue, attendance &amp; festival count</span>
+          <span class="ci-item"><span class="ci-icon">◎</span> Hover a diamond for festival name, genre &amp; capacity</span>
+        </div>
+        <div id="chart4"></div>
+        <div class="chart-caption">Bubble size &amp; colour = revenue &middot; Diamonds = festival locations by genre &middot; Hover for details</div>
+      </div>
+    </div>
+
+    <!-- Map story facts -->
+    <div class="map-story fi">
+      <div class="map-fact">
+        <span class="map-fact-num">$2.19B</span>
+        <span class="map-fact-lbl">Combined revenue from NSW and VIC alone &mdash; more than all other states combined in 2023</span>
+      </div>
+      <div class="map-fact">
+        <span class="map-fact-num">149</span>
+        <span class="map-fact-lbl">Festivals in NSW &mdash; the most of any state, reflecting Sydney and Byron Bay&rsquo;s dominance as festival destinations</span>
+      </div>
+      <div class="map-fact">
+        <span class="map-fact-num">2</span>
+        <span class="map-fact-lbl">Festivals across the entire Northern Territory &mdash; the most underserved region in the country by a wide margin</span>
+      </div>
+    </div>
+
+    <!-- Charts 5 & 6 -->
+    <div class="g2 fi">
+      <div class="box">
+        <div class="box-tag">Chart 05 &mdash; Revenue Share vs Population Share &middot; Sources: LPA 2023; ABS Census 2021</div>
+        <div class="box-h">Who Punches Above Their Weight?</div>
+        <p class="box-p">Each bar shows how far a state&rsquo;s live music revenue share
+          deviates from its population share.
+          A bar pointing <strong>right (teal)</strong> means the state earns more revenue
+          than its population size would predict.
+          Victoria and ACT punch well above their weight; NT and QLD significantly under-perform.</p>
+        <div id="chart5"></div>
+        <div class="chart-caption">Teal = earns more than population share &middot; Red = earns less &middot; Labels show deviation in percentage points</div>
+      </div>
+
+      <div class="box w">
+        <div class="box-tag">Chart 06 &mdash; Festival Count with Revenue Efficiency &middot; Source: Creative Australia Soundcheck 2024</div>
+        <div class="box-h">Festival Density by State</div>
+        <p class="box-p">Bar length shows number of festivals per state (2022&ndash;23).
+          The dot colour encodes <strong>revenue per festival in AUD millions</strong>.
+          NSW and VIC lead in total festival count, but Queensland&rsquo;s events like CMC Rocks generate
+          proportionally higher revenue per festival.</p>
+        <div id="chart6"></div>
+        <div class="chart-caption">Bar = festival count &middot; Dot colour = revenue per festival ($M) &middot; Hover for details</div>
+      </div>
+    </div>
+
+    <!-- Chart 12: Bubble scatter -->
+    <div class="gf fi">
+      <div class="box dim">
+        <div class="box-tag">Chart 12 &mdash; State Revenue vs Attendance (Bubble Scatter) &middot; Source: Live Performance Australia 2023</div>
+        <div class="box-h">Revenue vs Attendance vs Festival Count</div>
+        <p class="box-p">Each bubble represents a state. Horizontal axis: total attendance (millions).
+          Vertical axis: total revenue ($B).
+          <strong>Bubble size</strong> encodes the number of festivals in that state.
+          <strong>Bubble colour</strong> encodes how far the state&rsquo;s revenue share
+          exceeds its population share (green = over-performing; red = under-performing).
+          NSW and VIC cluster top-right &mdash; all others are far behind.</p>
+        <div id="chart12"></div>
+        <div class="chart-caption">Bubble size = festival count &middot; Colour = revenue vs population share &middot; Hover for all values</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ACT 3 — THE SETLIST
+     ═══════════════════════════════════════════ -->
+<section id="act3">
+  <div class="act-head fi">
+    <div class="act-bg-num">03</div>
+    <div class="act-tag c-purple">Act Three</div>
+    <h2 class="act-h">The Setlist</h2>
+    <p class="act-p">From deep techno forests to country paddocks. Australia&rsquo;s 535 annual festivals span
+      every genre &mdash; but not every state plays the same music,
+      and the pandemic permanently changed who buys the tickets.</p>
+    <div class="rule p"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="gpills fi">
+      <span class="gpill" style="background:rgba(255,107,107,.1);border:1px solid #FF6B6B;color:#FF6B6B;"> Electronic 23%</span>
+      <span class="gpill" style="background:rgba(255,230,109,.1);border:1px solid #FFE66D;color:#FFE66D;"> Rock 21%</span>
+      <span class="gpill" style="background:rgba(6,214,160,.1);border:1px solid #06D6A0;color:#06D6A0;">Country 19%</span>
+      <span class="gpill" style="background:rgba(168,230,207,.1);border:1px solid #A8E6CF;color:#A8E6CF;"> Indie 17%</span>
+      <span class="gpill" style="background:rgba(155,93,229,.1);border:1px solid #9B5DE5;color:#9B5DE5;"> Multi-genre 10%</span>
+      <span class="gpill" style="background:rgba(199,184,234,.1);border:1px solid #C7B8EA;color:#C7B8EA;"> Other 10%</span>
+    </div>
+
+    <!-- Charts 7 & 8 -->
+    <div class="g2 fi">
+      <div class="box p">
+        <div class="box-tag">Chart 07 &mdash; Genre Breakdown (Radial Bar) &middot; Source: Creative Australia Soundcheck 2024</div>
+        <div class="box-h">Australia&rsquo;s Festival Diet</div>
+        <p class="box-p">A radial bar chart showing genre share across all 535 festivals.
+          <strong>Bar length</strong> encodes the percentage of total festivals.
+          Country music&rsquo;s 19% share may surprise &mdash; it reflects
+          Australia&rsquo;s strong regional festival culture, especially in Queensland.</p>
+        <div id="chart7"></div>
+        <div class="chart-caption">Bar length = share of all 535 festivals &middot; Hover for festival count</div>
+      </div>
+
+      <div class="box">
+        <div class="box-tag">Chart 08 &mdash; Genre by State Heatmap &middot; Source: Creative Australia Soundcheck 2024</div>
+        <div class="box-h">What Each State Loves</div>
+        <p class="box-p">An annotated heatmap of genre share by state.
+          The <strong>diverging colour scale</strong> reveals clear state identities:
+          orange = above national average; purple = below.
+          Victoria and Tasmania lean heavily electronic.
+          Queensland is Australia&rsquo;s country music heartland.</p>
+        <div id="chart8"></div>
+        <div class="chart-caption">Orange = above national avg &middot; Purple = below &middot; Numbers = % share &middot; Hover for details</div>
+      </div>
+    </div>
+
+    <p class="callout p fi" style="margin-top:22px;">
+      Before COVID, <strong>18&ndash;24 year olds</strong> were the #1 festival audience in Australia.
+      By 2022&ndash;23, that title had passed to <strong>25&ndash;34 year olds</strong>.
+      The pandemic cost young Australians three formative years of live music &mdash;
+      and the demographic shift appears permanent.
+    </p>
+
+    <!-- Chart 9: Connected dot plot -->
+    <div class="gf fi">
+      <div class="box p">
+        <div class="box-tag">Chart 09 &mdash; Age Demographics (Connected Dot Plot, Interactive) &middot; Sources: LPA; Creative Australia Soundcheck 2024</div>
+        <div class="box-h">The Demographic Shift</div>
+        <p class="box-p">A connected dot plot comparing ticket-buyer age shares
+          before COVID (2018&ndash;19, purple dots) and after (2022&ndash;23, gold dots).
+          The connecting line shows the <strong>direction and magnitude of change</strong> for each age group.
+          The 18&ndash;24 cohort dropped 12 percentage points &mdash; the largest shift of any age group.
+          The 25&ndash;34 cohort gained the most, growing by 7 percentage points.</p>
+        <div class="chart-instructions">
+          <span class="ci-item"><span class="ci-icon">↖</span> Click a period in the legend to highlight that era</span>
+        </div>
+        <div id="chart9"></div>
+        <div class="chart-caption">Purple = Pre-COVID 2018&ndash;19 &middot; Gold = Post-COVID 2022&ndash;23 &middot; Line shows change &middot; Click legend to highlight</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ACT 4 — THE CRISIS
+     ═══════════════════════════════════════════ -->
+<section id="act4">
+  <div class="act-head fi">
+    <div class="act-bg-num">04</div>
+    <div class="act-tag c-red">Act Four</div>
+    <h2 class="act-h">The Crisis</h2>
+    <p class="act-p">Record crowds. Record revenue. And yet &mdash; Australian music festivals are collapsing
+      at an alarming rate. The paradox at the heart of the live music scene has never been starker.</p>
+    <div class="rule r"></div>
+  </div>
+
+  <div class="wrap">
+    <p class="callout r fi">
+      In 2024 alone, <strong>Splendour in the Grass, Groovin the Moo, Spilt Milk and Lost Paradise</strong>
+      were all cancelled. Bluesfest &mdash; a 35-year institution &mdash; announced its 2025 edition as its final.
+      The stadium tours are booming. The grassroots festivals that built Australian music culture are dying.
+    </p>
+
+    <!-- Crisis cards -->
+    <div class="crisis-grid fi">
+      <div class="crisis-card">
+        <div class="crisis-name">Splendour in the Grass</div>
+        <div class="crisis-meta">NSW &middot; Byron Bay &middot; Est. 2001</div>
+        <div class="crisis-why">Poor advance ticket sales despite a decades-long loyal audience base</div>
+        <span class="crisis-badge">Cancelled 2024</span>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">Groovin the Moo</div>
+        <div class="crisis-meta">Multi-state &middot; Regional &middot; Est. 2006</div>
+        <div class="crisis-why">Rising touring and operational costs rendered the regional tour unviable</div>
+        <span class="crisis-badge">Cancelled 2024</span>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">Spilt Milk</div>
+        <div class="crisis-meta">ACT &middot; Canberra &middot; Est. 2015</div>
+        <div class="crisis-why">Cost pressures and insufficient advance ticket sales</div>
+        <span class="crisis-badge">Cancelled 2024</span>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">Bluesfest</div>
+        <div class="crisis-meta">NSW &middot; Byron Bay &middot; Est. 1990</div>
+        <div class="crisis-why">Financial viability lost after 35 consecutive years of operation</div>
+        <span class="crisis-badge">Final Edition 2025</span>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">Lost Paradise</div>
+        <div class="crisis-meta">NSW &middot; Central Coast &middot; Est. 2013</div>
+        <div class="crisis-why">Escalating insurance and operational costs proved unworkable</div>
+        <span class="crisis-badge">Cancelled 2024</span>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">Falls Festival</div>
+        <div class="crisis-meta">Multi-state &middot; Est. 1993</div>
+        <div class="crisis-why">Ongoing financial losses that persisted through the entire COVID recovery</div>
+        <span class="crisis-badge">Cancelled 2023</span>
+      </div>
+    </div>
+
+    <!-- Chart 10: Stacked challenges + slider -->
+    <div class="gf fi">
+      <div class="box r">
+        <div class="box-tag">Chart 10 &mdash; Organiser Challenges (Stacked Bar + Interactive Highlight) &middot; Source: Creative Australia Soundcheck 2024</div>
+        <div class="box-h">What&rsquo;s Killing Australian Festivals</div>
+        <p class="box-p">Stacked horizontal bars show the combined weight of
+          <strong>severe</strong> (bright red) and <strong>major</strong> (dark red) impact
+          for each challenge faced by festival organisers (535 festivals surveyed, 2022&ndash;23).
+          Rising operational costs affect <strong>78% of all organisers</strong>
+          when both impact levels are combined &mdash; the highest of any challenge.</p>
+        <div class="chart-instructions">
+          <span class="ci-item"><span class="ci-icon">◉</span> Use the slider below to highlight challenges by minimum severe impact threshold</span>
+          <span class="ci-item"><span class="ci-icon">◎</span> Hover bars for exact values</span>
+        </div>
+        <div id="chart10"></div>
+        <div class="chart-caption">Bright red = Severe impact &middot; Dark red = Major impact &middot; Slider highlights bars above threshold &middot; Hover for exact values</div>
+      </div>
+    </div>
+
+    <!-- Chart 11: Contemporary detail overview+detail -->
+    <div class="gf fi" style="margin-top:20px;">
+      <div class="box w">
+        <div class="box-tag">Chart 11 &mdash; Contemporary Music Share Over Time (Overview + Detail) &middot; Source: Live Performance Australia</div>
+        <div class="box-h">Big Tours Eat Everything</div>
+        <p class="box-p">Contemporary music&rsquo;s share of total live performance revenue over 20 years.
+          In 2024 it reached <strong>54%</strong> &mdash; up from just 43% in 2017.
+          The dashed line marks the 2017 baseline.
+          This reflects the structural shift from many mid-size festivals to a handful of
+          mega stadium tours &mdash; Taylor Swift&rsquo;s Eras Tour alone generated an
+          estimated $50M+ in Australian ticket revenue.</p>
+        <div class="chart-instructions">
+          <span class="ci-item"><span class="ci-icon">⇔</span> Drag the bottom mini-chart to zoom the detail view above</span>
+        </div>
+        <div id="chart11"></div>
+        <div class="chart-caption">Gold = contemporary share % &middot; Drag bottom mini-chart to zoom &middot; Hover for exact values</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-h">The Show<br>Must Go On</div>
+  <p class="footer-p">Australia&rsquo;s live music culture stands at a crossroads.
+    The stadium spectacles have never been bigger.
+    The grassroots festivals that discovered tomorrow&rsquo;s headliners
+    are being erased one by one.</p>
+
+  <div class="sources">
+    <strong>Data Sources</strong><br><br>
+    Live Performance Australia &mdash; Ticket Attendance &amp; Revenue Reports, 2004&ndash;2024<br>
+    URL: <a href="https://reports.liveperformance.com.au" target="_blank">reports.liveperformance.com.au</a><br><br>
+    Creative Australia &mdash; Soundcheck: Insights into Australia&rsquo;s Music Festival Sector (2024)<br>
+    URL: <a href="https://creative.gov.au/research/soundcheck-australian-music-festivals" target="_blank">creative.gov.au/research/soundcheck-australian-music-festivals</a><br><br>
+    Data NSW &mdash; Live Performance Australia Attendance in NSW<br>
+    URL: <a href="https://data.nsw.gov.au/data/dataset/live-performance-australia-attendance-in-nsw" target="_blank">data.nsw.gov.au</a><br><br>
+    Natural Earth &mdash; World Administrative Boundaries TopoJSON (110m scale)<br>
+    URL: <a href="https://www.naturalearthdata.com" target="_blank">naturalearthdata.com</a> &middot; Converted via Mapshaper<br><br>
+    Australian Bureau of Statistics &mdash; Population by State, 2021 Census<br>
+    URL: <a href="https://www.abs.gov.au" target="_blank">abs.gov.au</a>
+  </div>
+
+  <div class="author-line">
+    FIT2179 Data Visualisation 2 &nbsp;&middot;&nbsp; Monash University &nbsp;&middot;&nbsp; Semester 1, 2026 &nbsp;&middot;&nbsp; May, 2026
+  </div>
+</footer>
+
+<!-- Vega-Lite visualisation controller -->
+<script src="js/vega_lite_vis.js"></script>
+
+</body>
+</html>
