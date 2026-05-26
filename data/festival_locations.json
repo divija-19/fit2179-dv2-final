@@ -1,0 +1,314 @@
+[
+  {
+    "name": "Splendour in the Grass",
+    "lat": -28.64,
+    "lon": 153.56,
+    "state": "NSW",
+    "genre": "Multi-genre",
+    "capacity": 35000
+  },
+  {
+    "name": "Bluesfest",
+    "lat": -28.64,
+    "lon": 153.56,
+    "state": "NSW",
+    "genre": "Blues/Roots",
+    "capacity": 20000
+  },
+  {
+    "name": "Byron Bay Bluesfest",
+    "lat": -28.64,
+    "lon": 153.57,
+    "state": "NSW",
+    "genre": "Blues",
+    "capacity": 18000
+  },
+  {
+    "name": "Laneway Sydney",
+    "lat": -33.87,
+    "lon": 151.21,
+    "state": "NSW",
+    "genre": "Indie",
+    "capacity": 8000
+  },
+  {
+    "name": "Field Day",
+    "lat": -33.87,
+    "lon": 151.22,
+    "state": "NSW",
+    "genre": "Electronic",
+    "capacity": 12000
+  },
+  {
+    "name": "Yours & Owls",
+    "lat": -34.42,
+    "lon": 150.9,
+    "state": "NSW",
+    "genre": "Indie",
+    "capacity": 6000
+  },
+  {
+    "name": "Lost Paradise",
+    "lat": -33.57,
+    "lon": 151.32,
+    "state": "NSW",
+    "genre": "Electronic",
+    "capacity": 10000
+  },
+  {
+    "name": "Spilt Milk",
+    "lat": -35.28,
+    "lon": 149.13,
+    "state": "ACT",
+    "genre": "Multi-genre",
+    "capacity": 20000
+  },
+  {
+    "name": "Beyond the Valley",
+    "lat": -38.65,
+    "lon": 146.55,
+    "state": "VIC",
+    "genre": "Electronic",
+    "capacity": 15000
+  },
+  {
+    "name": "Laneway Melbourne",
+    "lat": -37.81,
+    "lon": 144.96,
+    "state": "VIC",
+    "genre": "Indie",
+    "capacity": 8000
+  },
+  {
+    "name": "Dark Mofo",
+    "lat": -42.88,
+    "lon": 147.33,
+    "state": "TAS",
+    "genre": "Multi-genre",
+    "capacity": 5000
+  },
+  {
+    "name": "Party in the Paddock",
+    "lat": -41.25,
+    "lon": 147.12,
+    "state": "TAS",
+    "genre": "Electronic",
+    "capacity": 3000
+  },
+  {
+    "name": "Meredith Music Festival",
+    "lat": -37.83,
+    "lon": 144.07,
+    "state": "VIC",
+    "genre": "Multi-genre",
+    "capacity": 10000
+  },
+  {
+    "name": "Golden Plains",
+    "lat": -37.83,
+    "lon": 144.08,
+    "state": "VIC",
+    "genre": "Multi-genre",
+    "capacity": 10000
+  },
+  {
+    "name": "St Jerome's Laneway Brisbane",
+    "lat": -27.47,
+    "lon": 153.02,
+    "state": "QLD",
+    "genre": "Indie",
+    "capacity": 8000
+  },
+  {
+    "name": "Groovin the Moo Townsville",
+    "lat": -19.27,
+    "lon": 146.82,
+    "state": "QLD",
+    "genre": "Multi-genre",
+    "capacity": 8000
+  },
+  {
+    "name": "CMC Rocks",
+    "lat": -27.6,
+    "lon": 152.72,
+    "state": "QLD",
+    "genre": "Country",
+    "capacity": 15000
+  },
+  {
+    "name": "Woodford Folk Festival",
+    "lat": -26.96,
+    "lon": 152.78,
+    "state": "QLD",
+    "genre": "Folk",
+    "capacity": 20000
+  },
+  {
+    "name": "Falls Festival Fremantle",
+    "lat": -32.05,
+    "lon": 115.74,
+    "state": "WA",
+    "genre": "Multi-genre",
+    "capacity": 12000
+  },
+  {
+    "name": "Laneway Perth",
+    "lat": -31.95,
+    "lon": 115.86,
+    "state": "WA",
+    "genre": "Indie",
+    "capacity": 8000
+  },
+  {
+    "name": "South Bound",
+    "lat": -32.53,
+    "lon": 115.72,
+    "state": "WA",
+    "genre": "Electronic",
+    "capacity": 5000
+  },
+  {
+    "name": "Listen Out Perth",
+    "lat": -31.95,
+    "lon": 115.87,
+    "state": "WA",
+    "genre": "Electronic",
+    "capacity": 8000
+  },
+  {
+    "name": "Laneway Adelaide",
+    "lat": -34.93,
+    "lon": 138.6,
+    "state": "SA",
+    "genre": "Indie",
+    "capacity": 8000
+  },
+  {
+    "name": "WOMADelaide",
+    "lat": -34.92,
+    "lon": 138.59,
+    "state": "SA",
+    "genre": "World",
+    "capacity": 25000
+  },
+  {
+    "name": "Groovin the Moo Bendigo",
+    "lat": -36.76,
+    "lon": 144.28,
+    "state": "VIC",
+    "genre": "Multi-genre",
+    "capacity": 8000
+  },
+  {
+    "name": "FOMO Melbourne",
+    "lat": -37.82,
+    "lon": 145.0,
+    "state": "VIC",
+    "genre": "Electronic",
+    "capacity": 10000
+  },
+  {
+    "name": "Rabbits Eat Lettuce",
+    "lat": -28.27,
+    "lon": 152.07,
+    "state": "QLD",
+    "genre": "Electronic",
+    "capacity": 3000
+  },
+  {
+    "name": "Unify Gathering",
+    "lat": -38.63,
+    "lon": 146.43,
+    "state": "VIC",
+    "genre": "Rock",
+    "capacity": 5000
+  },
+  {
+    "name": "Knotfest",
+    "lat": -37.81,
+    "lon": 144.97,
+    "state": "VIC",
+    "genre": "Rock",
+    "capacity": 25000
+  },
+  {
+    "name": "Download Festival",
+    "lat": -37.82,
+    "lon": 144.98,
+    "state": "VIC",
+    "genre": "Rock",
+    "capacity": 20000
+  },
+  {
+    "name": "Tamworth Country Music",
+    "lat": -31.09,
+    "lon": 150.92,
+    "state": "NSW",
+    "genre": "Country",
+    "capacity": 50000
+  },
+  {
+    "name": "Sydney Festival",
+    "lat": -33.87,
+    "lon": 151.21,
+    "state": "NSW",
+    "genre": "Multi-genre",
+    "capacity": 15000
+  },
+  {
+    "name": "Vivid Sydney",
+    "lat": -33.86,
+    "lon": 151.21,
+    "state": "NSW",
+    "genre": "Electronic",
+    "capacity": 30000
+  },
+  {
+    "name": "Listen Out Sydney",
+    "lat": -33.88,
+    "lon": 151.2,
+    "state": "NSW",
+    "genre": "Electronic",
+    "capacity": 10000
+  },
+  {
+    "name": "Listen Out Melbourne",
+    "lat": -37.82,
+    "lon": 144.97,
+    "state": "VIC",
+    "genre": "Electronic",
+    "capacity": 10000
+  },
+  {
+    "name": "Listen Out Brisbane",
+    "lat": -27.48,
+    "lon": 153.03,
+    "state": "QLD",
+    "genre": "Electronic",
+    "capacity": 10000
+  },
+  {
+    "name": "Strawberry Fields",
+    "lat": -34.8,
+    "lon": 143.15,
+    "state": "NSW",
+    "genre": "Electronic",
+    "capacity": 3000
+  },
+  {
+    "name": "Subsonic Music Festival",
+    "lat": -34.1,
+    "lon": 150.52,
+    "state": "NSW",
+    "genre": "Electronic",
+    "capacity": 3000
+  },
+  {
+    "name": "Origin Fields",
+    "lat": -12.46,
+    "lon": 130.84,
+    "state": "NT",
+    "genre": "Multi-genre",
+    "capacity": 5000
+  }
+]

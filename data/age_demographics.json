@@ -1,0 +1,12 @@
+[
+  {"age_group": "18–24", "period": "Pre-COVID (2018–19)", "pct": 32},
+  {"age_group": "25–34", "period": "Pre-COVID (2018–19)", "pct": 28},
+  {"age_group": "35–44", "period": "Pre-COVID (2018–19)", "pct": 20},
+  {"age_group": "45–54", "period": "Pre-COVID (2018–19)", "pct": 13},
+  {"age_group": "55+",   "period": "Pre-COVID (2018–19)", "pct": 7},
+  {"age_group": "18–24", "period": "Post-COVID (2022–23)", "pct": 20},
+  {"age_group": "25–34", "period": "Post-COVID (2022–23)", "pct": 35},
+  {"age_group": "35–44", "period": "Post-COVID (2022–23)", "pct": 24},
+  {"age_group": "45–54", "period": "Post-COVID (2022–23)", "pct": 14},
+  {"age_group": "55+",   "period": "Post-COVID (2022–23)", "pct": 7}
+]
