@@ -1,0 +1,44 @@
+[
+  {
+    "genre": "Electronic",
+    "pct": 23,
+    "festivals": 123,
+    "color": "#FF6B6B"
+  },
+  {
+    "genre": "Rock",
+    "pct": 21,
+    "festivals": 112,
+    "color": "#FFE66D"
+  },
+  {
+    "genre": "Country",
+    "pct": 19,
+    "festivals": 102,
+    "color": "#06D6A0"
+  },
+  {
+    "genre": "Indie",
+    "pct": 17,
+    "festivals": 91,
+    "color": "#A8E6CF"
+  },
+  {
+    "genre": "Multi-genre",
+    "pct": 10,
+    "festivals": 53,
+    "color": "#9B5DE5"
+  },
+  {
+    "genre": "Classical",
+    "pct": 5,
+    "festivals": 27,
+    "color": "#C7B8EA"
+  },
+  {
+    "genre": "Other",
+    "pct": 5,
+    "festivals": 27,
+    "color": "#888888"
+  }
+]
