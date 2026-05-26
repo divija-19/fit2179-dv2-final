@@ -18,7 +18,7 @@
       "labelFontSize": 13, "titleFontSize": 11
     }
   },
-  "data": { "url": "../data/challenges_stacked.json" },
+  "data": { "url": "data/challenges_stacked.json" },
   "params": [{
     "name": "min_sev",
     "value": 0,
