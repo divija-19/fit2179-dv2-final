@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Radial bar chart showing genre share across 535 Australian music festivals. Source: Creative Australia Soundcheck 2024.",
+  "width": "container",
+  "height": 340,
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" },
+    "legend": {
+      "labelColor": "#9a9590", "titleColor": "#7a7570",
+      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 12, "titleFontSize": 11
+    }
+  },
+  "data": { "url": "data/genres.json" },
+  "mark": {
+    "type": "arc",
+    "innerRadius": 55,
+    "outerRadius": { "expr": "55 + datum.pct * 4.2" },
+    "padAngle": 0.04,
+    "cornerRadius": 4
+  },
+  "encoding": {
+    "theta": { "field": "pct", "type": "quantitative", "stack": true },
+    "radius": {
+      "field": "pct", "type": "quantitative",
+      "scale": { "range": [55, 190] }
+    },
+    "color": {
+      "field": "genre", "type": "nominal",
+      "scale": {
+        "domain": ["Electronic", "Rock", "Country", "Indie", "Multi-genre", "Classical", "Other"],
+        "range": ["#FF6B6B", "#FFE66D", "#06D6A0", "#A8E6CF", "#9B5DE5", "#C7B8EA", "#555555"]
+      },
+      "legend": {
+        "orient": "right", "title": "Genre",
+        "labelFontSize": 12, "titleFontSize": 11
+      }
+    },
+    "tooltip": [
+      { "field": "genre", "title": "Genre" },
+      { "field": "pct", "title": "Share (%)", "format": ".0f" },
+      { "field": "festivals", "title": "Number of Festivals" }
+    ]
+  }
+}

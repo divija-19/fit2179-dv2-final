@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Live music revenue by state (proportional symbols) and festival locations across Australia. Sources: Live Performance Australia; Creative Australia Soundcheck 2024.",
+  "width": "container",
+  "height": 500,
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" },
+    "legend": {
+      "labelColor": "#9a9590", "titleColor": "#7a7570",
+      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 12, "titleFontSize": 11
+    }
+  },
+  "projection": {
+    "type": "mercator",
+    "center": [133, -28],
+    "scale": 850
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "js/ne_110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#0f0f0e",
+        "stroke": "#1e1e18",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "js/ne_110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "transform": [ { "filter": "datum.id === 36" } ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#1e1e18",
+        "stroke": "#3a3a2e",
+        "strokeWidth": 1.5
+      }
+    },
+    {
+      "data": { "url": "data/state_data.json" },
+      "mark": { "type": "circle", "opacity": 0.85 },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "size": {
+          "field": "revenue_b",
+          "type": "quantitative",
+          "scale": { "range": [300, 7000] },
+          "legend": {
+            "title": "Revenue ($B)",
+            "labelFormat": "$.2f",
+            "orient": "top-left",
+            "labelFontSize": 11,
+            "titleFontSize": 11
+          }
+        },
+        "color": {
+          "field": "revenue_b",
+          "type": "quantitative",
+          "scale": { "scheme": "goldorange", "domain": [0, 1.2] },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "revenue_b", "title": "Revenue ($B)", "format": "$.3f" },
+          { "field": "revenue_share", "title": "Revenue Share (%)", "format": ".1f" },
+          { "field": "attendance_share", "title": "Attendance Share (%)", "format": ".1f" },
+          { "field": "festivals", "title": "Number of Festivals" },
+          { "field": "revenue_vs_pop", "title": "Revenue vs Population (pp)", "format": "+.1f" }
+        ]
+      }
+    },
+    {
+      "data": { "url": "data/state_data.json" },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "font": "Space Mono, monospace",
+        "dy": -22
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "state_abbr", "type": "nominal" },
+        "color": {
+          "field": "revenue_b",
+          "type": "quantitative",
+          "scale": { "scheme": "goldorange", "domain": [0, 1.2] },
+          "legend": null
+        }
+      }
+    },
+    {
+      "data": { "url": "data/festival_locations.json" },
+      "mark": { "type": "point", "shape": "diamond", "size": 60, "opacity": 0.85 },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "color": {
+          "field": "genre",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Electronic", "Rock", "Country", "Indie", "Multi-genre", "Folk", "World", "Blues", "Blues/Roots"],
+            "range": ["#06D6A0", "#FFE66D", "#F4A261", "#A8E6CF", "#9B5DE5", "#88C0D0", "#EBCB8B", "#81A1C1", "#5E81AC"]
+          },
+          "legend": {
+            "title": "Festival Genre",
+            "orient": "bottom-right",
+            "columns": 2,
+            "labelFontSize": 11,
+            "titleFontSize": 11
+          }
+        },
+        "tooltip": [
+          { "field": "name", "title": "Festival" },
+          { "field": "state", "title": "State" },
+          { "field": "genre", "title": "Genre" },
+          { "field": "capacity", "title": "Capacity", "format": ",d" }
+        ]
+      }
+    }
+  ]
+}

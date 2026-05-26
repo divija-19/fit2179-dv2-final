@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Contemporary music share of total revenue 2004-2024 with overview+detail brush. Source: Live Performance Australia.",
+  "width": "container",
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" },
+    "axis": {
+      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
+      "labelColor": "#9a9590", "titleColor": "#7a7570",
+      "labelFont": "Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 12, "titleFontSize": 11
+    },
+    "legend": {
+      "labelColor": "#9a9590", "titleColor": "#7a7570",
+      "labelFont": "Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 12, "titleFontSize": 11
+    }
+  },
+  "vconcat": [
+    {
+      "height": 240,
+      "data": { "url": "data/lpa_annual.json" },
+      "layer": [
+        {
+          "mark": { "type": "area", "interpolate": "monotone", "line": { "color": "#F4A261", "strokeWidth": 2.5 },
+            "color": { "gradient": "linear", "x1": 0, "y1": 0, "x2": 0, "y2": 1,
+              "stops": [{ "offset": 0, "color": "#F4A261", "opacity": 0.25 }, { "offset": 1, "color": "#F4A261", "opacity": 0 }] } },
+          "encoding": {
+            "x": { "field": "year", "type": "quantitative", "scale": { "domain": { "param": "brush2" } }, "axis": { "format": "d", "title": null, "tickCount": 6 } },
+            "y": { "field": "contemporary_share_pct", "type": "quantitative", "axis": { "title": "Contemporary Music Share of Total Revenue (%)", "titleFontSize": 11 }, "scale": { "domain": [30, 60] } },
+            "tooltip": [
+              { "field": "year", "title": "Year", "format": "d" },
+              { "field": "contemporary_share_pct", "title": "Contemporary Share (%)", "format": ".1f" },
+              { "field": "contemporary_revenue_b", "title": "Contemporary Revenue ($B)", "format": "$.2f" },
+              { "field": "revenue_b", "title": "Total Revenue ($B)", "format": "$.2f" }
+            ]
+          }
+        },
+        {
+          "mark": { "type": "point", "filled": true, "size": 65, "color": "#F4A261" },
+          "encoding": {
+            "x": { "field": "year", "type": "quantitative", "scale": { "domain": { "param": "brush2" } } },
+            "y": { "field": "contemporary_share_pct", "type": "quantitative" }
+          }
+        },
+        {
+          "mark": { "type": "rule", "color": "#484840", "strokeWidth": 1, "strokeDash": [4, 4] },
+          "encoding": { "y": { "datum": 43, "type": "quantitative" } }
+        },
+        {
+          "data": { "values": [{ "year": 2017, "contemporary_share_pct": 43, "lbl": "2017 baseline: 43%" }] },
+          "mark": { "type": "text", "align": "left", "dx": 5, "dy": -13, "color": "#888", "font": "Space Mono, monospace", "fontSize": 9, "fontStyle": "italic" },
+          "encoding": {
+            "x": { "field": "year", "type": "quantitative", "scale": { "domain": { "param": "brush2" } } },
+            "y": { "field": "contemporary_share_pct", "type": "quantitative" },
+            "text": { "field": "lbl" }
+          }
+        },
+        {
+          "data": { "values": [{ "year": 2024, "contemporary_share_pct": 54, "lbl": "2024: 54% ↑" }] },
+          "mark": { "type": "text", "align": "right", "dx": -5, "dy": -15, "color": "#F4A261", "font": "Space Mono, monospace", "fontSize": 10, "fontWeight": "bold" },
+          "encoding": {
+            "x": { "field": "year", "type": "quantitative", "scale": { "domain": { "param": "brush2" } } },
+            "y": { "field": "contemporary_share_pct", "type": "quantitative" },
+            "text": { "field": "lbl" }
+          }
+        }
+      ]
+    },
+    {
+      "height": 58,
+      "data": { "url": "data/lpa_annual.json" },
+      "params": [{ "name": "brush2", "select": { "type": "interval", "encodings": ["x"] } }],
+      "mark": { "type": "area", "interpolate": "monotone", "color": "#F4A261", "opacity": 0.35 },
+      "encoding": {
+        "x": { "field": "year", "type": "quantitative", "axis": { "format": "d", "title": "← Drag here to zoom the chart above →", "labelFontSize": 11, "titleFontSize": 10, "titleColor": "#555548" } },
+        "y": { "field": "contemporary_share_pct", "type": "quantitative", "axis": { "tickCount": 2, "grid": false, "title": null } }
+      }
+    }
+  ]
+}

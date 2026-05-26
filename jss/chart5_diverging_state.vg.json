@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging bar showing each state's revenue share minus its population share. Sources: Live Performance Australia 2023; ABS Census 2021.",
+  "width": "container",
+  "height": 280,
+  "config": {
+    "background": "transparent",
+    "view": { "stroke": "transparent" },
+    "axis": {
+      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
+      "labelColor": "#9a9590", "titleColor": "#7a7570",
+      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 13, "titleFontSize": 11
+    }
+  },
+  "data": { "url": "data/state_data.json" },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusTopRight": 3, "cornerRadiusBottomRight": 3,
+        "cornerRadiusTopLeft": 3, "cornerRadiusBottomLeft": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "state_abbr", "type": "nominal",
+          "sort": { "field": "revenue_vs_pop", "order": "descending" },
+          "axis": { "title": null, "labelFontSize": 13 }
+        },
+        "x": {
+          "field": "revenue_vs_pop", "type": "quantitative",
+          "axis": { "title": "Revenue Share minus Population Share (percentage points)", "grid": true, "labelFontSize": 11 },
+          "scale": { "domain": [-8, 8] }
+        },
+        "color": {
+          "condition": { "test": "datum.revenue_vs_pop >= 0", "value": "#06D6A0" },
+          "value": "#EF233C"
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "revenue_share", "title": "Revenue Share (%)", "format": ".1f" },
+          { "field": "pop_share", "title": "Population Share (%)", "format": ".1f" },
+          { "field": "revenue_vs_pop", "title": "Difference (pp)", "format": "+.1f" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "rule", "color": "#383830", "strokeWidth": 1, "strokeDash": [3, 3] },
+      "encoding": { "x": { "datum": 0, "type": "quantitative" } }
+    },
+    {
+      "mark": {
+        "type": "text", "align": "left", "dx": 6,
+        "font": "Space Mono, monospace", "fontSize": 10
+      },
+      "encoding": {
+        "y": {
+          "field": "state_abbr", "type": "nominal",
+          "sort": { "field": "revenue_vs_pop", "order": "descending" }
+        },
+        "x": { "field": "revenue_vs_pop", "type": "quantitative" },
+        "text": { "field": "revenue_vs_pop", "type": "quantitative", "format": "+.1f" },
+        "color": {
+          "condition": { "test": "datum.revenue_vs_pop >= 0", "value": "#06D6A0" },
+          "value": "#EF233C"
+        }
+      }
+    }
+  ]
+}
