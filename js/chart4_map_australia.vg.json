@@ -18,7 +18,7 @@
   "projection": {
     "type": "mercator",
     "center": [133, -28],
-    "scale": 660
+    "scale": 690
   },
   "layer": [
     {
@@ -38,7 +38,9 @@
         "url": "js/ne_110m.json",
         "format": { "type": "topojson", "feature": "countries" }
       },
-      "transform": [ { "filter": "datum.id === 36" } ],
+      "transform": [
+        { "filter": "datum.id === 36" }
+      ],
       "mark": {
         "type": "geoshape",
         "fill": "#1e1e18",
@@ -51,13 +53,15 @@
         "url": "js/ne_110m.json",
         "format": { "type": "topojson", "mesh": "countries" }
       },
-      "transform": [ { "filter": "datum.id === 36" } ],
+      "transform": [
+        { "filter": "datum.id === 36" }
+      ],
       "mark": {
         "type": "geoshape",
         "fill": null,
-        "stroke": "#ffffff",
-        "strokeWidth": 0.9,
-        "opacity": 0.65
+        "stroke": "#5b5b52",
+        "strokeWidth": 1.0,
+        "opacity": 0.7
       }
     },
     {
@@ -98,13 +102,13 @@
       "data": { "url": "data/state_data.json" },
       "mark": {
         "type": "text",
-        "fontSize": 13,
+        "fontSize": 11,
         "fontWeight": "bold",
         "font": "Space Mono, monospace",
         "dy": -22,
         "fill": "#ffffff",
         "stroke": "#ffffff",
-        "strokeWidth": 2.2
+        "strokeWidth": 0.6
       },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
