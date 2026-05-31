@@ -1,66 +1,59 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Lollipop chart: number of festivals per state, dot colour shows revenue per festival in $M. Source: Creative Australia Soundcheck 2024.",
-  "width": "container",
-  "height": 280,
+  "width": "container", "height": 300,
   "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent" },
+    "background": "transparent", "view": {"stroke": "transparent"},
     "axis": {
-      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 13, "titleFontSize": 11
     },
     "legend": {
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 11, "titleFontSize": 11
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 12, "titleFontSize": 11
     }
   },
-  "data": { "url": "data/state_data.json" },
+  "data": {"url": "data/state_data.json"},
   "layer": [
     {
-      "mark": { "type": "rule", "strokeWidth": 2 },
+      "mark": {"type": "rule", "strokeWidth": 2.5},
       "encoding": {
-        "y": {
-          "field": "state_abbr", "type": "nominal",
-          "sort": "-x",
-          "axis": { "title": null, "labelFontSize": 13 }
-        },
-        "x": {
-          "field": "festivals", "type": "quantitative",
-          "axis": { "title": "Number of Festivals (2022–23)" },
-          "scale": { "domain": [0, 180] }
-        },
-        "x2": { "value": 0 },
-        "color": {
-          "field": "state_abbr", "type": "nominal",
-          "scale": { "scheme": "tableau10" },
-          "legend": null
-        }
+        "y": {"field": "state_abbr", "type": "nominal", "sort": "-x",
+          "axis": {"title": null, "labelFontSize": 13}},
+        "x": {"field": "festivals", "type": "quantitative",
+          "axis": {"title": "Number of Festivals (2022–23)", "titleFontSize": 11},
+          "scale": {"domain": [0, 180]}},
+        "x2": {"datum": 0},
+        "color": {"value": "#2e2e28"}
       }
     },
     {
-      "mark": { "type": "point", "filled": true, "size": 140 },
+      "mark": {"type": "point", "filled": true, "size": 160},
       "encoding": {
-        "y": { "field": "state_abbr", "type": "nominal", "sort": "-x" },
-        "x": { "field": "festivals", "type": "quantitative" },
+        "y": {"field": "state_abbr", "type": "nominal", "sort": "-x"},
+        "x": {"field": "festivals", "type": "quantitative"},
         "color": {
           "field": "rev_per_festival", "type": "quantitative",
-          "scale": { "scheme": "reds", "domain": [0, 12] },
-          "legend": {
-            "title": "Revenue per Festival ($M)",
-            "orient": "bottom-right",
-            "labelFormat": ".1f"
-          }
+          "scale": {"scheme": "reds", "domain": [0, 45]},
+          "legend": {"title": "Revenue per Festival (AUD millions)", "orient": "bottom-right", "labelFormat": "$.1f"}
         },
         "tooltip": [
-          { "field": "state", "title": "State" },
-          { "field": "festivals", "title": "Festivals" },
-          { "field": "rev_per_festival", "title": "Revenue per Festival ($M)", "format": ".2f" },
-          { "field": "revenue_b", "title": "Total Revenue ($B)", "format": "$.3f" }
+          {"field": "state", "title": "State"},
+          {"field": "festivals", "title": "Number of Festivals"},
+          {"field": "rev_per_festival", "title": "Revenue per Festival (AUD millions)", "format": "$.2f"},
+          {"field": "revenue_b", "title": "Total Revenue (AUD Billion)", "format": "$.3f"}
         ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 11,
+        "font": "Space Mono, monospace", "color": "#b0aa9e"},
+      "encoding": {
+        "y": {"field": "state_abbr", "type": "nominal", "sort": "-x"},
+        "x": {"field": "festivals", "type": "quantitative"},
+        "text": {"field": "festivals", "type": "quantitative"}
       }
     }
   ]
