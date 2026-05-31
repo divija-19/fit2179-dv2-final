@@ -1,43 +1,47 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 520,
+  "height": 530,
   "config": {
     "background": "transparent",
     "view": { "stroke": "transparent" },
     "legend": {
-      "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
+      "labelColor": "#c8c2b4", "titleColor": "#e0dcd4",
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 13, "titleFontSize": 11
+      "labelFontSize": 13, "titleFontSize": 11,
+      "padding": 8, "cornerRadius": 3,
+      "fillColor": "rgba(10,10,8,0.7)", "strokeColor": "#2a2a22"
     }
   },
   "projection": { "type": "mercator", "center": [132, -27], "scale": 800 },
   "layer": [
     {
       "data": { "url": "js/ne_110m.json", "format": { "type": "topojson", "feature": "countries" } },
-      "mark": { "type": "geoshape", "fill": "#0f0f0e", "stroke": "#1e1e18", "strokeWidth": 0.5 }
+      "mark": { "type": "geoshape", "fill": "#0d0d0c", "stroke": "#181816", "strokeWidth": 0.5 }
     },
     {
       "data": { "url": "js/ne_110m.json", "format": { "type": "topojson", "feature": "countries" } },
       "transform": [{ "filter": "datum.id === 36" }],
-      "mark": { "type": "geoshape", "fill": "#1a1a16", "stroke": "#2e2e26", "strokeWidth": 1.5 }
+      "mark": { "type": "geoshape", "fill": "#181816", "stroke": "#2a2a22", "strokeWidth": 1.5 }
     },
     {
       "data": { "url": "data/state_data.json" },
-      "mark": { "type": "circle", "opacity": 0.82 },
+      "mark": { "type": "circle", "opacity": 0.78, "stroke": "#ffffff", "strokeWidth": 0.5, "strokeOpacity": 0.15 },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
         "size": {
           "field": "revenue_b", "type": "quantitative",
-          "scale": { "range": [500, 7500] },
+          "scale": { "range": [600, 7800] },
           "legend": {
             "title": "Revenue (AUD Billion)",
             "labelFormat": "$.2f",
             "orient": "top-left",
-            "labelFontSize": 12,
-            "titleFontSize": 11,
-            "symbolOpacity": 0.7
+            "labelFontSize": 12, "titleFontSize": 11,
+            "symbolOpacity": 0.7,
+            "symbolFillColor": "#888",
+            "fillColor": "rgba(10,10,8,0.75)", "strokeColor": "#2a2a22",
+            "padding": 8
           }
         },
         "color": {
@@ -57,7 +61,10 @@
     },
     {
       "data": { "url": "data/festival_locations.json" },
-      "mark": { "type": "point", "shape": "diamond", "filled": false, "size": 70, "strokeWidth": 1.8, "opacity": 0.9 },
+      "mark": {
+        "type": "point", "shape": "diamond", "filled": true,
+        "size": 55, "opacity": 0.85, "strokeWidth": 0
+      },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
@@ -70,9 +77,10 @@
           "legend": {
             "title": "Festival Genre",
             "orient": "bottom-right",
-            "labelFontSize": 12,
-            "titleFontSize": 11,
-            "symbolSize": 90
+            "labelFontSize": 12, "titleFontSize": 11,
+            "symbolSize": 80, "symbolType": "diamond",
+            "fillColor": "rgba(10,10,8,0.75)", "strokeColor": "#2a2a22",
+            "padding": 8
           }
         },
         "tooltip": [
@@ -88,15 +96,19 @@
       "mark": {
         "type": "text",
         "font": "Space Mono, monospace",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#ffffff",
-        "opacity": 1
+        "fontSize": 11, "fontWeight": "bold",
+        "color": "#ffffff", "opacity": 1,
+        "stroke": "#0a0a08", "strokeWidth": 2.5, "strokeOpacity": 0.6
       },
       "encoding": {
-        "longitude": { "field": "lon", "type": "quantitative" },
-        "latitude": { "field": "lat", "type": "quantitative" },
-        "text": { "field": "state_abbr", "type": "nominal" }
+        "longitude": { "field": "label_lon", "type": "quantitative" },
+        "latitude": { "field": "label_lat", "type": "quantitative" },
+        "text": { "field": "state_abbr", "type": "nominal" },
+        "size": {
+          "field": "revenue_b", "type": "quantitative",
+          "scale": { "range": [11, 14] },
+          "legend": null
+        }
       }
     }
   ]
