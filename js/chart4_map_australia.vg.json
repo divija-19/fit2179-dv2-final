@@ -19,7 +19,7 @@
     },
     {
       "data": { "url": "js/ne_110m.json", "format": { "type": "topojson", "feature": "countries" } },
-      "transform": [ { "filter": "datum.id === 36" } ],
+      "transform": [{ "filter": "datum.id === 36" }],
       "mark": { "type": "geoshape", "fill": "#1a1a16", "stroke": "#2e2e26", "strokeWidth": 1.5 }
     },
     {
@@ -30,7 +30,7 @@
         "latitude": { "field": "lat", "type": "quantitative" },
         "size": {
           "field": "revenue_b", "type": "quantitative",
-          "scale": { "range": [500, 8000] },
+          "scale": { "range": [400, 7500] },
           "legend": {
             "title": "Revenue (AUD Billion)",
             "labelFormat": "$.2f",
@@ -56,25 +56,8 @@
       }
     },
     {
-      "data": { "url": "data/state_data.json" },
-      "mark": {
-        "type": "text",
-        "font": "Space Mono, monospace",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "dy": -4,
-        "color": "#ffffff",
-        "opacity": 0.9
-      },
-      "encoding": {
-        "longitude": { "field": "lon", "type": "quantitative" },
-        "latitude": { "field": "lat", "type": "quantitative" },
-        "text": { "field": "state_abbr", "type": "nominal" }
-      }
-    },
-    {
       "data": { "url": "data/festival_locations.json" },
-      "mark": { "type": "point", "shape": "diamond", "filled": false, "size": 80, "strokeWidth": 1.8, "opacity": 0.9 },
+      "mark": { "type": "point", "shape": "diamond", "filled": false, "size": 75, "strokeWidth": 1.8, "opacity": 0.9 },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
@@ -98,6 +81,23 @@
           { "field": "state", "title": "State" },
           { "field": "capacity", "title": "Capacity", "format": ",d" }
         ]
+      }
+    },
+    {
+      "data": { "url": "data/state_data.json" },
+      "mark": {
+        "type": "text",
+        "font": "Space Mono, monospace",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "opacity": 0.95,
+        "dy": 0
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "text": { "field": "state_abbr", "type": "nominal" }
       }
     }
   ]
