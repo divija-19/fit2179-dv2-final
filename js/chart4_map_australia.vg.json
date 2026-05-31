@@ -103,7 +103,7 @@
       "mark": {
         "type": "text",
         "fontSize": 11,
-        "fontWeight": "bold",
+        "fontWeight": "normal",
         "font": "Space Mono, monospace",
         "dy": -22,
         "fill": "#ffffff",
