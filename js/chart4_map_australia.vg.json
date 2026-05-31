@@ -11,7 +11,7 @@
       "labelFontSize": 13, "titleFontSize": 11
     }
   },
-  "projection": { "type": "mercator", "center": [134, -28], "scale": 820 },
+  "projection": { "type": "mercator", "center": [132, -27], "scale": 800 },
   "layer": [
     {
       "data": { "url": "js/ne_110m.json", "format": { "type": "topojson", "feature": "countries" } },
@@ -30,7 +30,7 @@
         "latitude": { "field": "lat", "type": "quantitative" },
         "size": {
           "field": "revenue_b", "type": "quantitative",
-          "scale": { "range": [400, 7500] },
+          "scale": { "range": [500, 7500] },
           "legend": {
             "title": "Revenue (AUD Billion)",
             "labelFormat": "$.2f",
@@ -57,7 +57,7 @@
     },
     {
       "data": { "url": "data/festival_locations.json" },
-      "mark": { "type": "point", "shape": "diamond", "filled": false, "size": 75, "strokeWidth": 1.8, "opacity": 0.9 },
+      "mark": { "type": "point", "shape": "diamond", "filled": false, "size": 70, "strokeWidth": 1.8, "opacity": 0.9 },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
@@ -72,7 +72,7 @@
             "orient": "bottom-right",
             "labelFontSize": 12,
             "titleFontSize": 11,
-            "symbolSize": 100
+            "symbolSize": 90
           }
         },
         "tooltip": [
@@ -91,8 +91,7 @@
         "fontSize": 11,
         "fontWeight": "bold",
         "color": "#ffffff",
-        "opacity": 0.95,
-        "dy": 0
+        "opacity": 1
       },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
