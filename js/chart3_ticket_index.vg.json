@@ -59,10 +59,7 @@
           "scale": {"domain": [0, 175]}
         },
         "color": {
-          "condition": {
-            "test": "datum.avg_ticket >= 90",
-            "value": "#F4A261"
-          },
+          "condition": {"test": "datum.avg_ticket >= 90", "value": "#F4A261"},
           "value": "#2e2e28"
         },
         "tooltip": [
@@ -96,14 +93,7 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "year": "2004",
-            "lbl": "2019 baseline = 100"
-          }
-        ]
-      },
+      "data": {"values": [{"year": "2004", "lbl": "2019 baseline = 100"}]},
       "mark": {
         "type": "text",
         "align": "left",
@@ -142,13 +132,12 @@
           "axis": {
             "title": "Revenue Index (2019 = 100)",
             "orient": "right",
-
-            "labels": false,
-            "ticks": false,
-
             "titleColor": "#FFD166",
+            "labelColor": "#b09940",
             "titleFontSize": 10,
+            "labelFontSize": 10,
             "titlePadding": 8,
+            "labelPadding": 6,
             "offset": 8
           },
           "scale": {"domain": [0, 175]}
@@ -156,12 +145,7 @@
       }
     },
     {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 50,
-        "color": "#FFD166"
-      },
+      "mark": {"type": "point", "filled": true, "size": 50, "color": "#FFD166"},
       "encoding": {
         "x": {"field": "year", "type": "ordinal"},
         "y": {
@@ -185,14 +169,7 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "year": "2024",
-            "revenue_index": 151.6
-          }
-        ]
-      },
+      "data": {"values": [{"year": "2024", "revenue_index": 151.6}]},
       "mark": {
         "type": "text",
         "align": "right",
