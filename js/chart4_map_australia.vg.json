@@ -4,7 +4,9 @@
   "height": 620,
   "config": {
     "background": "transparent",
-    "view": {"stroke": "transparent"},
+    "view": {
+      "stroke": "transparent"
+    },
     "legend": {
       "labelColor": "#c8c2b4",
       "titleColor": "#e0dcd4",
@@ -12,20 +14,34 @@
       "titleFont": "Space Mono, monospace",
       "labelFontSize": 12,
       "titleFontSize": 11,
-      "padding": 10,
+      "padding": 12,
       "cornerRadius": 4,
-      "fillColor": "rgba(8,8,6,0.88)",
+      "fillColor": "rgba(8,8,6,0.90)",
       "strokeColor": "#2e2e26"
     }
   },
-  "projection": {"type": "mercator", "center": [134, -28], "scale": 950},
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -28
+    ],
+    "scale": 950
+  },
   "layer": [
     {
       "data": {
-        "url": "js/ne_50m.json",
-        "format": {"type": "topojson", "feature": "countries"}
+        "url": "js/ne_110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
       },
-      "transform": [{"filter": "datum.id !== 36"}],
+      "transform": [
+        {
+          "filter": "datum.id !== 36"
+        }
+      ],
       "mark": {
         "type": "geoshape",
         "fill": "#080806",
@@ -35,19 +51,976 @@
     },
     {
       "data": {
-        "url": "js/ne_50m.json",
-        "format": {"type": "topojson", "feature": "countries"}
+        "url": "js/ne_110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
       },
-      "transform": [{"filter": "datum.id === 36"}],
+      "transform": [
+        {
+          "filter": "datum.id === 36"
+        }
+      ],
       "mark": {
         "type": "geoshape",
         "fill": "#18180e",
-        "stroke": "#3a3a2e",
-        "strokeWidth": 1.4
+        "stroke": "#4a4a38",
+        "strokeWidth": 1.6
       }
     },
     {
-      "data": {"url": "data/state_data.json"},
+      "data": {
+        "values": [
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Western Australia"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    129.001,
+                    -13.743
+                  ],
+                  [
+                    129.001,
+                    -35.001
+                  ],
+                  [
+                    114.166,
+                    -34.157
+                  ],
+                  [
+                    113.157,
+                    -33.71
+                  ],
+                  [
+                    113.003,
+                    -33.074
+                  ],
+                  [
+                    113.415,
+                    -32.194
+                  ],
+                  [
+                    114.091,
+                    -31.815
+                  ],
+                  [
+                    114.603,
+                    -31.065
+                  ],
+                  [
+                    114.917,
+                    -29.266
+                  ],
+                  [
+                    114.15,
+                    -26.217
+                  ],
+                  [
+                    113.706,
+                    -25.664
+                  ],
+                  [
+                    113.566,
+                    -24.555
+                  ],
+                  [
+                    114.057,
+                    -22.786
+                  ],
+                  [
+                    114.09,
+                    -21.966
+                  ],
+                  [
+                    116.047,
+                    -20.454
+                  ],
+                  [
+                    118.371,
+                    -19.975
+                  ],
+                  [
+                    119.165,
+                    -19.574
+                  ],
+                  [
+                    120.697,
+                    -19.071
+                  ],
+                  [
+                    121.504,
+                    -19.159
+                  ],
+                  [
+                    122.201,
+                    -18.493
+                  ],
+                  [
+                    122.728,
+                    -18.185
+                  ],
+                  [
+                    123.611,
+                    -17.613
+                  ],
+                  [
+                    124.012,
+                    -16.847
+                  ],
+                  [
+                    124.84,
+                    -16.829
+                  ],
+                  [
+                    125.428,
+                    -16.14
+                  ],
+                  [
+                    125.9,
+                    -15.644
+                  ],
+                  [
+                    126.634,
+                    -14.823
+                  ],
+                  [
+                    127.114,
+                    -14.697
+                  ],
+                  [
+                    127.996,
+                    -14.806
+                  ],
+                  [
+                    128.843,
+                    -14.803
+                  ],
+                  [
+                    129.001,
+                    -13.743
+                  ]
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Northern Territory"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    129.001,
+                    -13.743
+                  ],
+                  [
+                    129.001,
+                    -26.0
+                  ],
+                  [
+                    138.001,
+                    -26.0
+                  ],
+                  [
+                    138.001,
+                    -19.999
+                  ],
+                  [
+                    135.998,
+                    -13.998
+                  ],
+                  [
+                    134.997,
+                    -11.966
+                  ],
+                  [
+                    132.002,
+                    -11.367
+                  ],
+                  [
+                    130.451,
+                    -11.632
+                  ],
+                  [
+                    130.186,
+                    -12.047
+                  ],
+                  [
+                    129.788,
+                    -13.022
+                  ],
+                  [
+                    129.001,
+                    -13.743
+                  ]
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "South Australia"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    129.001,
+                    -26.0
+                  ],
+                  [
+                    129.001,
+                    -35.001
+                  ],
+                  [
+                    132.024,
+                    -33.631
+                  ],
+                  [
+                    133.246,
+                    -34.195
+                  ],
+                  [
+                    134.534,
+                    -34.986
+                  ],
+                  [
+                    135.518,
+                    -35.571
+                  ],
+                  [
+                    136.046,
+                    -35.196
+                  ],
+                  [
+                    136.591,
+                    -35.173
+                  ],
+                  [
+                    137.818,
+                    -34.904
+                  ],
+                  [
+                    138.174,
+                    -35.625
+                  ],
+                  [
+                    138.473,
+                    -35.093
+                  ],
+                  [
+                    138.512,
+                    -35.748
+                  ],
+                  [
+                    140.006,
+                    -36.009
+                  ],
+                  [
+                    141.001,
+                    -36.003
+                  ],
+                  [
+                    141.001,
+                    -26.0
+                  ],
+                  [
+                    138.001,
+                    -26.0
+                  ],
+                  [
+                    129.001,
+                    -26.0
+                  ]
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Queensland"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    138.001,
+                    -26.0
+                  ],
+                  [
+                    138.001,
+                    -19.999
+                  ],
+                  [
+                    135.998,
+                    -13.998
+                  ],
+                  [
+                    138.001,
+                    -16.012
+                  ],
+                  [
+                    139.199,
+                    -17.412
+                  ],
+                  [
+                    140.004,
+                    -17.489
+                  ],
+                  [
+                    140.899,
+                    -17.261
+                  ],
+                  [
+                    141.003,
+                    -16.054
+                  ],
+                  [
+                    141.003,
+                    -10.662
+                  ],
+                  [
+                    142.594,
+                    -10.662
+                  ],
+                  [
+                    143.012,
+                    -11.01
+                  ],
+                  [
+                    143.658,
+                    -14.473
+                  ],
+                  [
+                    145.095,
+                    -15.491
+                  ],
+                  [
+                    145.525,
+                    -15.989
+                  ],
+                  [
+                    145.796,
+                    -17.18
+                  ],
+                  [
+                    146.368,
+                    -18.283
+                  ],
+                  [
+                    146.974,
+                    -19.477
+                  ],
+                  [
+                    147.53,
+                    -19.702
+                  ],
+                  [
+                    148.179,
+                    -19.969
+                  ],
+                  [
+                    148.566,
+                    -20.324
+                  ],
+                  [
+                    149.217,
+                    -21.027
+                  ],
+                  [
+                    149.58,
+                    -22.394
+                  ],
+                  [
+                    150.317,
+                    -22.2
+                  ],
+                  [
+                    150.816,
+                    -22.581
+                  ],
+                  [
+                    151.244,
+                    -23.791
+                  ],
+                  [
+                    151.87,
+                    -24.233
+                  ],
+                  [
+                    152.627,
+                    -24.782
+                  ],
+                  [
+                    153.016,
+                    -25.574
+                  ],
+                  [
+                    153.305,
+                    -25.982
+                  ],
+                  [
+                    153.447,
+                    -26.622
+                  ],
+                  [
+                    153.554,
+                    -27.2
+                  ],
+                  [
+                    153.522,
+                    -28.051
+                  ],
+                  [
+                    153.738,
+                    -28.214
+                  ],
+                  [
+                    153.555,
+                    -29.057
+                  ],
+                  [
+                    153.002,
+                    -29.626
+                  ],
+                  [
+                    152.782,
+                    -29.243
+                  ],
+                  [
+                    151.981,
+                    -29.219
+                  ],
+                  [
+                    151.497,
+                    -29.098
+                  ],
+                  [
+                    150.517,
+                    -29.436
+                  ],
+                  [
+                    150.003,
+                    -29.462
+                  ],
+                  [
+                    149.198,
+                    -29.479
+                  ],
+                  [
+                    148.479,
+                    -28.976
+                  ],
+                  [
+                    147.53,
+                    -28.882
+                  ],
+                  [
+                    146.0,
+                    -28.904
+                  ],
+                  [
+                    145.5,
+                    -28.702
+                  ],
+                  [
+                    144.481,
+                    -28.519
+                  ],
+                  [
+                    143.511,
+                    -28.696
+                  ],
+                  [
+                    142.562,
+                    -28.7
+                  ],
+                  [
+                    141.003,
+                    -28.998
+                  ],
+                  [
+                    141.003,
+                    -26.0
+                  ],
+                  [
+                    138.001,
+                    -26.0
+                  ]
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "New South Wales"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    141.003,
+                    -28.998
+                  ],
+                  [
+                    141.003,
+                    -34.0
+                  ],
+                  [
+                    142.006,
+                    -37.002
+                  ],
+                  [
+                    143.2,
+                    -38.7
+                  ],
+                  [
+                    144.1,
+                    -38.1
+                  ],
+                  [
+                    145.0,
+                    -37.978
+                  ],
+                  [
+                    145.499,
+                    -37.801
+                  ],
+                  [
+                    146.013,
+                    -37.48
+                  ],
+                  [
+                    147.004,
+                    -37.002
+                  ],
+                  [
+                    148.002,
+                    -37.479
+                  ],
+                  [
+                    148.987,
+                    -37.499
+                  ],
+                  [
+                    149.89,
+                    -37.392
+                  ],
+                  [
+                    150.506,
+                    -36.724
+                  ],
+                  [
+                    150.904,
+                    -36.202
+                  ],
+                  [
+                    151.204,
+                    -35.504
+                  ],
+                  [
+                    151.39,
+                    -34.585
+                  ],
+                  [
+                    151.702,
+                    -33.898
+                  ],
+                  [
+                    152.115,
+                    -33.234
+                  ],
+                  [
+                    152.621,
+                    -32.681
+                  ],
+                  [
+                    152.889,
+                    -31.996
+                  ],
+                  [
+                    153.221,
+                    -31.003
+                  ],
+                  [
+                    153.52,
+                    -29.98
+                  ],
+                  [
+                    153.606,
+                    -29.818
+                  ],
+                  [
+                    153.708,
+                    -29.379
+                  ],
+                  [
+                    153.555,
+                    -29.057
+                  ],
+                  [
+                    153.002,
+                    -29.626
+                  ],
+                  [
+                    152.782,
+                    -29.243
+                  ],
+                  [
+                    151.981,
+                    -29.219
+                  ],
+                  [
+                    151.497,
+                    -29.098
+                  ],
+                  [
+                    150.517,
+                    -29.436
+                  ],
+                  [
+                    150.003,
+                    -29.462
+                  ],
+                  [
+                    149.198,
+                    -29.479
+                  ],
+                  [
+                    148.479,
+                    -28.976
+                  ],
+                  [
+                    147.53,
+                    -28.882
+                  ],
+                  [
+                    146.0,
+                    -28.904
+                  ],
+                  [
+                    145.5,
+                    -28.702
+                  ],
+                  [
+                    144.481,
+                    -28.519
+                  ],
+                  [
+                    143.511,
+                    -28.696
+                  ],
+                  [
+                    142.562,
+                    -28.7
+                  ],
+                  [
+                    141.003,
+                    -28.998
+                  ]
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Victoria"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    141.003,
+                    -34.0
+                  ],
+                  [
+                    141.003,
+                    -38.0
+                  ],
+                  [
+                    141.672,
+                    -38.019
+                  ],
+                  [
+                    142.5,
+                    -38.191
+                  ],
+                  [
+                    143.2,
+                    -38.7
+                  ],
+                  [
+                    144.1,
+                    -38.1
+                  ],
+                  [
+                    145.0,
+                    -37.978
+                  ],
+                  [
+                    145.499,
+                    -37.801
+                  ],
+                  [
+                    146.013,
+                    -37.48
+                  ],
+                  [
+                    147.004,
+                    -37.002
+                  ],
+                  [
+                    148.002,
+                    -37.479
+                  ],
+                  [
+                    148.987,
+                    -37.499
+                  ],
+                  [
+                    149.89,
+                    -37.392
+                  ],
+                  [
+                    150.506,
+                    -36.724
+                  ],
+                  [
+                    149.3,
+                    -37.7
+                  ],
+                  [
+                    148.002,
+                    -37.479
+                  ],
+                  [
+                    146.552,
+                    -39.013
+                  ],
+                  [
+                    146.302,
+                    -38.908
+                  ],
+                  [
+                    145.585,
+                    -38.479
+                  ],
+                  [
+                    144.866,
+                    -38.436
+                  ],
+                  [
+                    143.923,
+                    -38.48
+                  ],
+                  [
+                    142.924,
+                    -38.49
+                  ],
+                  [
+                    142.491,
+                    -38.378
+                  ],
+                  [
+                    142.043,
+                    -38.213
+                  ],
+                  [
+                    141.708,
+                    -38.02
+                  ],
+                  [
+                    141.003,
+                    -38.0
+                  ],
+                  [
+                    141.003,
+                    -34.0
+                  ]
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Australian Capital Territory"
+            },
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    148.763,
+                    -35.119
+                  ],
+                  [
+                    149.399,
+                    -35.119
+                  ],
+                  [
+                    149.399,
+                    -35.921
+                  ],
+                  [
+                    148.763,
+                    -35.921
+                  ],
+                  [
+                    148.763,
+                    -35.119
+                  ]
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "name": "Tasmania"
+            },
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      144.998,
+                      -40.702
+                    ],
+                    [
+                      145.809,
+                      -40.815
+                    ],
+                    [
+                      146.514,
+                      -40.634
+                    ],
+                    [
+                      147.631,
+                      -40.997
+                    ],
+                    [
+                      148.382,
+                      -41.295
+                    ],
+                    [
+                      148.349,
+                      -42.013
+                    ],
+                    [
+                      148.01,
+                      -42.492
+                    ],
+                    [
+                      147.518,
+                      -42.897
+                    ],
+                    [
+                      146.821,
+                      -43.215
+                    ],
+                    [
+                      146.023,
+                      -43.583
+                    ],
+                    [
+                      145.191,
+                      -43.574
+                    ],
+                    [
+                      144.311,
+                      -43.214
+                    ],
+                    [
+                      143.913,
+                      -42.701
+                    ],
+                    [
+                      143.89,
+                      -41.832
+                    ],
+                    [
+                      144.38,
+                      -41.204
+                    ],
+                    [
+                      144.729,
+                      -40.984
+                    ],
+                    [
+                      144.998,
+                      -40.702
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    [
+                      147.916,
+                      -39.877
+                    ],
+                    [
+                      148.246,
+                      -39.745
+                    ],
+                    [
+                      148.399,
+                      -40.054
+                    ],
+                    [
+                      148.103,
+                      -40.194
+                    ],
+                    [
+                      147.916,
+                      -39.877
+                    ]
+                  ]
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#3c3c2c",
+        "strokeWidth": 0.85,
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "shape": {
+          "field": "geometry",
+          "type": "geojson"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_data.json"
+      },
       "mark": {
         "type": "circle",
         "opacity": 0.78,
@@ -56,12 +1029,23 @@
         "strokeOpacity": 0.14
       },
       "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
         "size": {
           "field": "revenue_b",
           "type": "quantitative",
-          "scale": {"range": [200, 6000]},
+          "scale": {
+            "range": [
+              200,
+              5800
+            ]
+          },
           "legend": {
             "title": "Revenue (AUD Billion)",
             "labelFormat": "$.2f",
@@ -71,39 +1055,80 @@
             "symbolOpacity": 0.72,
             "symbolFillColor": "#7a7a66",
             "padding": 12,
-            "values": [0.1, 0.4, 0.7, 1.0]
+            "values": [
+              0.1,
+              0.4,
+              0.7,
+              1.0
+            ]
           }
         },
         "color": {
           "field": "revenue_b",
           "type": "quantitative",
-          "scale": {"scheme": "goldorange", "domain": [0, 1.2]},
+          "scale": {
+            "scheme": "goldorange",
+            "domain": [
+              0,
+              1.2
+            ]
+          },
           "legend": null
         },
         "tooltip": [
-          {"field": "state", "title": "State"},
-          {"field": "revenue_b", "title": "Revenue (AUD Billion)", "format": "$.3f"},
-          {"field": "revenue_share", "title": "Revenue Share (%)", "format": ".1f"},
-          {"field": "attendance_m", "title": "Attendance (millions)", "format": ".2f"},
-          {"field": "festivals", "title": "Number of Festivals"},
-          {"field": "revenue_vs_pop", "title": "Revenue vs Population Share (pp)", "format": "+.1f"}
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "revenue_b",
+            "title": "Revenue (AUD Billion)",
+            "format": "$.3f"
+          },
+          {
+            "field": "revenue_share",
+            "title": "Revenue Share (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "attendance_m",
+            "title": "Attendance (millions)",
+            "format": ".2f"
+          },
+          {
+            "field": "festivals",
+            "title": "Number of Festivals"
+          },
+          {
+            "field": "revenue_vs_pop",
+            "title": "Revenue vs Population Share (pp)",
+            "format": "+.1f"
+          }
         ]
       }
     },
     {
-      "data": {"url": "data/festival_locations.json"},
+      "data": {
+        "url": "data/festival_locations.json"
+      },
       "mark": {
         "type": "point",
         "shape": "diamond",
         "filled": true,
         "size": 72,
-        "opacity": 0.92,
+        "opacity": 0.93,
         "strokeWidth": 0.4,
         "stroke": "rgba(0,0,0,0.3)"
       },
       "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
         "color": {
           "field": "genre",
           "type": "nominal",
@@ -142,15 +1167,30 @@
           }
         },
         "tooltip": [
-          {"field": "name", "title": "Festival"},
-          {"field": "genre", "title": "Genre"},
-          {"field": "state", "title": "State"},
-          {"field": "capacity", "title": "Capacity", "format": ",d"}
+          {
+            "field": "name",
+            "title": "Festival"
+          },
+          {
+            "field": "genre",
+            "title": "Genre"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "capacity",
+            "title": "Capacity",
+            "format": ",d"
+          }
         ]
       }
     },
     {
-      "data": {"url": "data/state_data.json"},
+      "data": {
+        "url": "data/state_data.json"
+      },
       "mark": {
         "type": "text",
         "font": "Space Mono, monospace",
@@ -160,13 +1200,21 @@
         "opacity": 1,
         "stroke": "#060604",
         "strokeWidth": 3.5,
-        "strokeOpacity": 0.85,
-        "dy": 0
+        "strokeOpacity": 0.85
       },
       "encoding": {
-        "longitude": {"field": "label_lon", "type": "quantitative"},
-        "latitude": {"field": "label_lat", "type": "quantitative"},
-        "text": {"field": "state_abbr", "type": "nominal"}
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbr",
+          "type": "nominal"
+        }
       }
     }
   ]
