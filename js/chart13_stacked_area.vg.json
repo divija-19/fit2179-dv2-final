@@ -1,52 +1,49 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Stacked area chart: contemporary music revenue vs all other categories 2004-2024. Shows the growing dominance of big stadium tours. Source: Live Performance Australia.",
-  "width": "container",
-  "height": 270,
+  "width": "container", "height": 280,
   "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent" },
+    "background": "transparent", "view": {"stroke": "transparent"},
     "axis": {
-      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 12, "titleFontSize": 11
     },
     "legend": {
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 12, "titleFontSize": 11
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 13, "titleFontSize": 11
     }
   },
-  "data": { "url": "data/lpa_annual.json" },
+  "data": {"url": "data/lpa_annual.json"},
   "transform": [
-    { "fold": ["contemporary_revenue_b", "other_revenue_b"], "as": ["category_key", "value"] },
-    {
-      "calculate": "datum.category_key === 'contemporary_revenue_b' ? 'Contemporary Music' : 'All Other Categories'",
-      "as": "category"
-    }
+    {"fold": ["contemporary_revenue_b", "other_revenue_b"], "as": ["category_key", "value"]},
+    {"calculate": "datum.category_key === 'contemporary_revenue_b' ? 'Contemporary Music' : 'All Other Categories'",
+     "as": "category"}
   ],
-  "mark": { "type": "area", "interpolate": "monotone" },
+  "mark": {"type": "area", "interpolate": "monotone"},
   "encoding": {
-    "x": { "field": "year", "type": "quantitative", "axis": { "format": "d", "title": "Year", "tickCount": 11 } },
-    "y": { "field": "value", "type": "quantitative", "stack": "zero", "axis": { "title": "Revenue (AUD Billion)", "format": "$,.1f" } },
+    "x": {"field": "year", "type": "quantitative",
+      "axis": {"format": "d", "title": "Year", "tickCount": 11}},
+    "y": {"field": "value", "type": "quantitative", "stack": "zero",
+      "axis": {"title": "Revenue (AUD Billion)", "format": "$,.1f"}},
     "color": {
       "field": "category", "type": "nominal",
       "scale": {
         "domain": ["Contemporary Music", "All Other Categories"],
-        "range": ["#FFD166", "#2a2a22"]
+        "range": ["#FFD166", "#1e1e18"]
       },
-      "legend": { "title": "Category", "orient": "top-right" }
+      "legend": {"title": "Category", "orient": "top-right"}
     },
     "opacity": {
       "field": "category", "type": "nominal",
-      "scale": { "domain": ["Contemporary Music", "All Other Categories"], "range": [0.88, 0.55] },
+      "scale": {"domain": ["Contemporary Music", "All Other Categories"], "range": [0.9, 0.6]},
       "legend": null
     },
     "tooltip": [
-      { "field": "year", "title": "Year", "format": "d" },
-      { "field": "category", "title": "Category" },
-      { "field": "value", "title": "Revenue ($B)", "format": "$.2f" }
+      {"field": "year", "title": "Year", "format": "d"},
+      {"field": "category", "title": "Category"},
+      {"field": "value", "title": "Revenue (AUD Billion)", "format": "$.2f"}
     ]
   }
 }
