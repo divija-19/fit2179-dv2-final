@@ -11,7 +11,9 @@
     "lon": 151.21,
     "rev_per_festival": 7.62,
     "pop_share": 31.9,
-    "revenue_vs_pop": 1.4
+    "revenue_vs_pop": 1.4,
+    "label_lat": -31.8,
+    "label_lon": 153.8
   },
   {
     "state": "Victoria",
@@ -25,7 +27,9 @@
     "lon": 144.96,
     "rev_per_festival": 7.06,
     "pop_share": 26.5,
-    "revenue_vs_pop": 4.3
+    "revenue_vs_pop": 4.3,
+    "label_lat": -38.8,
+    "label_lon": 143.5
   },
   {
     "state": "Queensland",
@@ -39,7 +43,9 @@
     "lon": 153.02,
     "rev_per_festival": 6.07,
     "pop_share": 20.5,
-    "revenue_vs_pop": -4.2
+    "revenue_vs_pop": -4.2,
+    "label_lat": -27.47,
+    "label_lon": 153.02
   },
   {
     "state": "Western Australia",
@@ -53,7 +59,9 @@
     "lon": 115.86,
     "rev_per_festival": 4.35,
     "pop_share": 10.5,
-    "revenue_vs_pop": -1.8
+    "revenue_vs_pop": -1.8,
+    "label_lat": -31.95,
+    "label_lon": 115.86
   },
   {
     "state": "South Australia",
@@ -67,7 +75,9 @@
     "lon": 138.6,
     "rev_per_festival": 4.13,
     "pop_share": 6.9,
-    "revenue_vs_pop": -1.5
+    "revenue_vs_pop": -1.5,
+    "label_lat": -34.93,
+    "label_lon": 138.6
   },
   {
     "state": "Australian Capital Territory",
@@ -81,7 +91,9 @@
     "lon": 149.13,
     "rev_per_festival": 3.78,
     "pop_share": 1.7,
-    "revenue_vs_pop": 0.3
+    "revenue_vs_pop": 0.3,
+    "label_lat": -36.5,
+    "label_lon": 150.5
   },
   {
     "state": "Tasmania",
@@ -95,7 +107,9 @@
     "lon": 147.33,
     "rev_per_festival": 2.83,
     "pop_share": 2.2,
-    "revenue_vs_pop": -1.2
+    "revenue_vs_pop": -1.2,
+    "label_lat": -42.88,
+    "label_lon": 147.33
   },
   {
     "state": "Northern Territory",
@@ -109,6 +123,8 @@
     "lon": 130.84,
     "rev_per_festival": 41.0,
     "pop_share": 1.0,
-    "revenue_vs_pop": 1.4
+    "revenue_vs_pop": 1.4,
+    "label_lat": -12.46,
+    "label_lon": 130.84
   }
 ]
