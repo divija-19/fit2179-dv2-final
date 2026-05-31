@@ -2,128 +2,259 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Live music revenue by state (proportional symbols) and festival locations across Australia. Sources: Live Performance Australia; Creative Australia Soundcheck 2024.",
   "width": "container",
-  "height": 500,
+  "height": 520,
+  "background": "#0b0b0b",
+  "padding": 8,
   "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent" },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false,
+      "domain": false,
+      "ticks": false,
+      "labels": false,
+      "title": null
+    },
     "legend": {
-      "labelColor": "#7a7570", "titleColor": "#7a7570",
-      "labelFont": "Inter, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 12, "titleFontSize": 11
+      "labelColor": "#c8c2b8",
+      "titleColor": "#f0e6d6",
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "symbolStrokeWidth": 1.2,
+      "symbolType": "circle"
+    },
+    "text": {
+      "font": "Inter, sans-serif"
     }
   },
   "projection": {
     "type": "mercator",
     "center": [133, -28],
-    "scale": 850
+    "scale": 900
   },
   "layer": [
     {
       "data": {
         "url": "js/ne_110m.json",
-        "format": { "type": "topojson", "feature": "countries" }
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#0f0f0e",
-        "stroke": "#1e1e18",
-        "strokeWidth": 0.5
+        "fill": "#111111",
+        "stroke": "#2a2a24",
+        "strokeWidth": 0.8
       }
     },
     {
       "data": {
         "url": "js/ne_110m.json",
-        "format": { "type": "topojson", "feature": "countries" }
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
       },
-      "transform": [ { "filter": "datum.id === 36" } ],
+      "transform": [
+        {
+          "filter": "datum.id === 36"
+        }
+      ],
       "mark": {
         "type": "geoshape",
-        "fill": "#1e1e18",
-        "stroke": "#3a3a2e",
+        "fill": "#181813",
+        "stroke": "#5a564c",
         "strokeWidth": 1.5
       }
     },
     {
-      "data": { "url": "data/state_data.json" },
-      "mark": { "type": "circle", "opacity": 0.85 },
+      "data": {
+        "url": "data/state_data.json"
+      },
+      "transform": [
+        {
+          "calculate": "sqrt(datum.revenue_b) * 115",
+          "as": "bubble_size"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.82,
+        "stroke": "#f5efe4",
+        "strokeWidth": 0.6
+      },
       "encoding": {
-        "longitude": { "field": "lon", "type": "quantitative" },
-        "latitude": { "field": "lat", "type": "quantitative" },
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
         "size": {
-          "field": "revenue_b",
+          "field": "bubble_size",
           "type": "quantitative",
-          "scale": { "range": [300, 7000] },
+          "scale": {
+            "range": [300, 6500]
+          },
           "legend": {
             "title": "Revenue ($B)",
-            "labelFormat": "$.2f",
             "orient": "top-left",
-            "labelFontSize": 11,
-            "titleFontSize": 11
+            "values": [0.2, 0.4, 0.6, 0.8, 1.0],
+            "format": ".1f"
           }
         },
         "color": {
           "field": "revenue_b",
           "type": "quantitative",
-          "scale": { "scheme": "goldorange", "domain": [0, 1.2] },
+          "scale": {
+            "scheme": "goldorange",
+            "domain": [0, 1.2]
+          },
           "legend": null
         },
         "tooltip": [
-          { "field": "state", "title": "State" },
-          { "field": "revenue_b", "title": "Revenue ($B)", "format": "$.3f" },
-          { "field": "revenue_share", "title": "Revenue Share (%)", "format": ".1f" },
-          { "field": "attendance_share", "title": "Attendance Share (%)", "format": ".1f" },
-          { "field": "festivals", "title": "Number of Festivals" },
-          { "field": "revenue_vs_pop", "title": "Revenue vs Population (pp)", "format": "+.1f" }
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "revenue_b",
+            "title": "Revenue ($B)",
+            "format": ".3f"
+          },
+          {
+            "field": "revenue_share",
+            "title": "Revenue Share (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "attendance_share",
+            "title": "Attendance Share (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "festivals",
+            "title": "Number of Festivals"
+          },
+          {
+            "field": "revenue_vs_pop",
+            "title": "Revenue vs Population (pp)",
+            "format": "+.1f"
+          }
         ]
       }
     },
     {
-      "data": { "url": "data/state_data.json" },
+      "data": {
+        "url": "data/state_data.json"
+      },
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": 12,
         "fontWeight": "bold",
-        "font": "Space Mono, monospace",
-        "dy": -22
+        "font": "Inter, sans-serif",
+        "dy": -18,
+        "stroke": "#0b0b0b",
+        "strokeWidth": 2,
+        "fill": "#f3e7c9"
       },
       "encoding": {
-        "longitude": { "field": "lon", "type": "quantitative" },
-        "latitude": { "field": "lat", "type": "quantitative" },
-        "text": { "field": "state_abbr", "type": "nominal" },
-        "color": {
-          "field": "revenue_b",
-          "type": "quantitative",
-          "scale": { "scheme": "goldorange", "domain": [0, 1.2] },
-          "legend": null
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbr",
+          "type": "nominal"
         }
       }
     },
     {
-      "data": { "url": "data/festival_locations.json" },
-      "mark": { "type": "point", "shape": "diamond", "size": 60, "opacity": 0.85 },
+      "data": {
+        "url": "data/festival_locations.json"
+      },
+      "mark": {
+        "type": "point",
+        "shape": "diamond",
+        "size": 70,
+        "filled": true,
+        "opacity": 0.92,
+        "stroke": "#111111",
+        "strokeWidth": 1
+      },
       "encoding": {
-        "longitude": { "field": "lon", "type": "quantitative" },
-        "latitude": { "field": "lat", "type": "quantitative" },
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
         "color": {
           "field": "genre",
           "type": "nominal",
           "scale": {
-            "domain": ["Electronic", "Rock", "Country", "Indie", "Multi-genre", "Folk", "World", "Blues", "Blues/Roots"],
-            "range": ["#06D6A0", "#FFE66D", "#F4A261", "#A8E6CF", "#9B5DE5", "#88C0D0", "#EBCB8B", "#81A1C1", "#5E81AC"]
+            "domain": [
+              "Electronic",
+              "Rock",
+              "Country",
+              "Indie",
+              "Multi-genre",
+              "Folk",
+              "World",
+              "Blues",
+              "Blues/Roots"
+            ],
+            "range": [
+              "#32d6c6",
+              "#f6d365",
+              "#f4a261",
+              "#a8e6cf",
+              "#b388ff",
+              "#8ecae6",
+              "#ffd166",
+              "#90caf9",
+              "#6c91bf"
+            ]
           },
           "legend": {
             "title": "Festival Genre",
             "orient": "bottom-right",
             "columns": 2,
+            "symbolType": "diamond",
             "labelFontSize": 11,
-            "titleFontSize": 11
+            "titleFontSize": 12
           }
         },
         "tooltip": [
-          { "field": "name", "title": "Festival" },
-          { "field": "state", "title": "State" },
-          { "field": "genre", "title": "Genre" },
-          { "field": "capacity", "title": "Capacity", "format": ",d" }
+          {
+            "field": "name",
+            "title": "Festival"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "genre",
+            "title": "Genre"
+          },
+          {
+            "field": "capacity",
+            "title": "Capacity",
+            "format": ",d"
+          }
         ]
       }
     }
