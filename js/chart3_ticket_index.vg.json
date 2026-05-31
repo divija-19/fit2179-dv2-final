@@ -13,7 +13,12 @@
     }
   },
   "data": { "url": "data/lpa_annual.json" },
-  "resolve": { "scale": { "y": "independent" } },
+  "transform": [
+    {
+      "calculate": "datum.revenue_index * (130 / 170)",
+      "as": "index_scaled"
+    }
+  ],
   "layer": [
     {
       "mark": { "type": "bar", "cornerRadiusTopLeft": 2, "cornerRadiusTopRight": 2 },
@@ -21,16 +26,14 @@
         "x": {
           "field": "year", "type": "ordinal",
           "axis": {
-            "title": null,
-            "labelAngle": -45,
-            "labelFontSize": 10,
-            "labelOverlap": "parity"
+            "title": null, "labelAngle": -45,
+            "labelFontSize": 10, "labelOverlap": "parity"
           }
         },
         "y": {
           "field": "avg_ticket", "type": "quantitative",
           "axis": {
-            "title": "Avg Ticket Price (AUD)",
+            "title": "Average Ticket Price (AUD)",
             "format": "$d",
             "titleColor": "#c8c2b4",
             "titleFontSize": 10,
@@ -56,15 +59,10 @@
         "type": "rule", "color": "#555548",
         "strokeWidth": 1.2, "strokeDash": [5, 4]
       },
-      "encoding": {
-        "y": {
-          "datum": 100, "type": "quantitative",
-          "scale": { "domain": [0, 175] }
-        }
-      }
+      "encoding": { "y": { "datum": 76.5, "type": "quantitative" } }
     },
     {
-      "data": { "values": [{ "year": "2017" }] },
+      "data": { "values": [{ "year": "2014" }] },
       "mark": {
         "type": "text", "align": "left", "dx": 4, "dy": -8,
         "color": "#777066", "font": "Space Mono, monospace",
@@ -72,8 +70,8 @@
       },
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
-        "y": { "datum": 100, "type": "quantitative", "scale": { "domain": [0, 175] } },
-        "text": { "value": "2019 baseline = 100" }
+        "y": { "datum": 76.5, "type": "quantitative" },
+        "text": { "value": "2019 baseline (index = 100)" }
       }
     },
     {
@@ -84,30 +82,18 @@
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
         "y": {
-          "field": "revenue_index", "type": "quantitative",
-          "axis": {
-            "title": "Revenue Index (2019 = 100)",
-            "titleColor": "#b09030",
-            "labelColor": "#b09030",
-            "titleFontSize": 10,
-            "labelFontSize": 10,
-            "titlePadding": 6,
-            "orient": "right",
-            "tickCount": 5,
-            "titleAngle": 90,
-            "titleAlign": "center"
-          },
-          "scale": { "domain": [0, 175] }
+          "field": "index_scaled", "type": "quantitative",
+          "scale": { "domain": [0, 130] }
         }
       }
     },
     {
-      "mark": { "type": "point", "filled": true, "size": 50, "color": "#FFD166" },
+      "mark": { "type": "point", "filled": true, "size": 55, "color": "#FFD166" },
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
         "y": {
-          "field": "revenue_index", "type": "quantitative",
-          "scale": { "domain": [0, 175] }
+          "field": "index_scaled", "type": "quantitative",
+          "scale": { "domain": [0, 130] }
         },
         "tooltip": [
           { "field": "year", "title": "Year" },
@@ -117,16 +103,29 @@
       }
     },
     {
-      "data": { "values": [{ "year": "2023", "v": 151.6 }] },
+      "data": { "values": [{ "year": "2024", "v": 116 }] },
       "mark": {
-        "type": "text", "align": "right", "dx": 28, "dy": -14,
+        "type": "text", "align": "center", "dy": -14,
         "color": "#FFD166", "font": "Space Mono, monospace",
         "fontSize": 10, "fontWeight": "bold"
       },
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
-        "y": { "field": "v", "type": "quantitative", "scale": { "domain": [0, 175] } },
+        "y": { "field": "v", "type": "quantitative" },
         "text": { "value": "Index 152 ▲" }
+      }
+    },
+    {
+      "data": { "values": [{ "year": "2020", "v": 17.7 }] },
+      "mark": {
+        "type": "text", "align": "center", "dy": -10,
+        "color": "#EF233C", "font": "Space Mono, monospace",
+        "fontSize": 9, "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" },
+        "y": { "field": "v", "type": "quantitative" },
+        "text": { "value": "COVID ↓" }
       }
     }
   ]
