@@ -10,71 +10,31 @@
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 12, "titleFontSize": 11,
       "padding": 10, "cornerRadius": 3,
-      "fillColor": "rgba(8,8,6,0.82)", "strokeColor": "#2e2e26"
+      "fillColor": "rgba(8,8,6,0.88)", "strokeColor": "#2e2e26"
     }
   },
-  "projection": {
-    "type": "mercator",
-    "center": [134, -28],
-    "scale": 820
-  },
+  "projection": { "type": "mercator", "center": [134, -28], "scale": 820 },
   "layer": [
     {
-      "data": {
-        "url": "js/ne_110m.json",
-        "format": { "type": "topojson", "feature": "countries" }
-      },
-      "transform": [{ "filter": "datum.id !== 36" }],
-      "mark": {
-        "type": "geoshape",
-        "fill": "#0a0a09",
-        "stroke": "#141412",
-        "strokeWidth": 0.4
-      }
+      "data": { "url": "js/ne_110m_world.json", "format": { "type": "topojson", "feature": "countries" } },
+      "mark": { "type": "geoshape", "fill": "#0c0c0b", "stroke": "#161614", "strokeWidth": 0.3 }
     },
     {
-      "data": {
-        "url": "js/ne_110m.json",
-        "format": { "type": "topojson", "feature": "countries" }
-      },
-      "transform": [{ "filter": "datum.id === 36" }],
-      "mark": {
-        "type": "geoshape",
-        "fill": "#1c1c18",
-        "stroke": "#32322a",
-        "strokeWidth": 1.2
-      }
+      "data": { "url": "js/ne_110m_aus.json", "format": { "type": "topojson", "feature": "countries" } },
+      "mark": { "type": "geoshape", "fill": "#1e1e1a", "stroke": "#34342c", "strokeWidth": 1.4 }
     },
     {
       "data": { "url": "data/state_data.json" },
-      "mark": {
-        "type": "circle",
-        "opacity": 0.82,
-        "stroke": "#ffffff",
-        "strokeWidth": 0.8,
-        "strokeOpacity": 0.18
-      },
+      "mark": { "type": "circle", "opacity": 0.82, "stroke": "#ffffff", "strokeWidth": 0.8, "strokeOpacity": 0.18 },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
         "size": {
           "field": "revenue_b", "type": "quantitative",
           "scale": { "range": [500, 8000] },
-          "legend": {
-            "title": "Revenue (AUD Billion)",
-            "labelFormat": "$.2f",
-            "orient": "top-left",
-            "labelFontSize": 12, "titleFontSize": 11,
-            "symbolOpacity": 0.75,
-            "symbolFillColor": "#888877",
-            "padding": 10
-          }
+          "legend": { "title": "Revenue (AUD Billion)", "labelFormat": "$.2f", "orient": "top-left", "labelFontSize": 12, "titleFontSize": 11, "symbolOpacity": 0.75, "symbolFillColor": "#888877", "padding": 10 }
         },
-        "color": {
-          "field": "revenue_b", "type": "quantitative",
-          "scale": { "scheme": "goldorange", "domain": [0, 1.2] },
-          "legend": null
-        },
+        "color": { "field": "revenue_b", "type": "quantitative", "scale": { "scheme": "goldorange", "domain": [0, 1.2] }, "legend": null },
         "tooltip": [
           { "field": "state", "title": "State" },
           { "field": "revenue_b", "title": "Revenue (AUD Billion)", "format": "$.3f" },
@@ -87,14 +47,7 @@
     },
     {
       "data": { "url": "data/festival_locations.json" },
-      "mark": {
-        "type": "point",
-        "shape": "diamond",
-        "filled": true,
-        "size": 60,
-        "opacity": 0.9,
-        "strokeWidth": 0
-      },
+      "mark": { "type": "point", "shape": "diamond", "filled": true, "size": 60, "opacity": 0.9, "strokeWidth": 0 },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
@@ -104,13 +57,7 @@
             "domain": ["Electronic","Rock","Country","Indie","Multi-genre","Folk","World","Blues","Blues/Roots"],
             "range": ["#06D6A0","#FF6B6B","#FFD166","#A8E6CF","#9B5DE5","#F4A261","#C7B8EA","#4895EF","#73D2DE"]
           },
-          "legend": {
-            "title": "Festival Genre",
-            "orient": "bottom-right",
-            "labelFontSize": 12, "titleFontSize": 11,
-            "symbolSize": 90, "symbolType": "diamond",
-            "padding": 10
-          }
+          "legend": { "title": "Festival Genre", "orient": "bottom-right", "labelFontSize": 12, "titleFontSize": 11, "symbolSize": 90, "symbolType": "diamond", "padding": 10 }
         },
         "tooltip": [
           { "field": "name", "title": "Festival" },
@@ -122,17 +69,7 @@
     },
     {
       "data": { "url": "data/state_data.json" },
-      "mark": {
-        "type": "text",
-        "font": "Space Mono, monospace",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#ffffff",
-        "opacity": 1,
-        "stroke": "#080806",
-        "strokeWidth": 3,
-        "strokeOpacity": 0.7
-      },
+      "mark": { "type": "text", "font": "Space Mono, monospace", "fontSize": 11, "fontWeight": "bold", "color": "#ffffff", "opacity": 1, "stroke": "#080806", "strokeWidth": 3, "strokeOpacity": 0.7 },
       "encoding": {
         "longitude": { "field": "label_lon", "type": "quantitative" },
         "latitude": { "field": "label_lat", "type": "quantitative" },
