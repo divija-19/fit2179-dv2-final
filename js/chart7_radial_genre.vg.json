@@ -1,32 +1,66 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container", "height": 340,
+  "width": "container",
+  "height": 320,
   "config": {
-    "background": "transparent", "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "view": { "stroke": "transparent" },
+    "axis": {
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 13, "titleFontSize": 11
+    },
     "legend": {
-      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 13, "titleFontSize": 11
     }
   },
-  "data": {"url": "data/genres.json"},
-  "mark": {"type": "arc", "innerRadius": 58, "padAngle": 0.04, "cornerRadius": 4},
-  "encoding": {
-    "theta": {"field": "pct", "type": "quantitative", "stack": true},
-    "radius": {"field": "pct", "type": "quantitative",
-      "scale": {"range": [58, 190]}},
-    "color": {
-      "field": "genre", "type": "nominal",
-      "scale": {
-        "domain": ["Electronic","Rock","Country","Indie","Multi-genre","Classical","Other"],
-        "range": ["#FF6B6B","#FFE66D","#06D6A0","#A8E6CF","#9B5DE5","#C7B8EA","#555555"]
-      },
-      "legend": {"orient": "right", "title": "Genre", "labelFontSize": 13}
+  "data": { "url": "data/genres.json" },
+  "layer": [
+    {
+      "mark": { "type": "bar", "cornerRadiusTopRight": 4, "cornerRadiusBottomRight": 4 },
+      "encoding": {
+        "y": {
+          "field": "genre", "type": "nominal",
+          "sort": { "field": "pct", "order": "descending" },
+          "axis": { "title": null, "labelFontSize": 14, "labelColor": "#d0cac0" }
+        },
+        "x": {
+          "field": "pct", "type": "quantitative",
+          "axis": { "title": "Share of all 535 festivals (%)", "titleFontSize": 11 },
+          "scale": { "domain": [0, 28] }
+        },
+        "color": {
+          "field": "genre", "type": "nominal",
+          "scale": {
+            "domain": ["Electronic","Rock","Country","Indie","Multi-genre","Classical","Other"],
+            "range": ["#FF6B6B","#FFE66D","#06D6A0","#A8E6CF","#9B5DE5","#C7B8EA","#555555"]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "genre", "title": "Genre" },
+          { "field": "pct", "title": "Share of All Festivals (%)", "format": ".0f" },
+          { "field": "festivals", "title": "Number of Festivals" }
+        ]
+      }
     },
-    "tooltip": [
-      {"field": "genre", "title": "Genre"},
-      {"field": "pct", "title": "Share of All Festivals (%)", "format": ".0f"},
-      {"field": "festivals", "title": "Number of Festivals"}
-    ]
-  }
+    {
+      "mark": {
+        "type": "text", "align": "left", "dx": 6,
+        "font": "Space Mono, monospace", "fontSize": 12, "fontWeight": "bold"
+      },
+      "encoding": {
+        "y": {
+          "field": "genre", "type": "nominal",
+          "sort": { "field": "pct", "order": "descending" }
+        },
+        "x": { "field": "pct", "type": "quantitative" },
+        "text": { "field": "pct", "type": "quantitative", "format": ".0f" },
+        "color": { "value": "#d0cac0" }
+      }
+    }
+  ]
 }
