@@ -1,25 +1,31 @@
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "width": "container",
   "height": 300,
   "padding": 10,
 
   "config": {
     "background": "transparent",
+
     "view": {
       "stroke": "transparent"
     },
+
     "axis": {
       "domainColor": "#2a2a24",
       "gridColor": "#1c1c16",
       "tickColor": "#2a2a24",
+
       "labelColor": "#c8c2b4",
       "titleColor": "#d0cac0",
+
       "labelFont": "DM Sans, sans-serif",
       "titleFont": "Space Mono, monospace",
+
       "labelFontSize": 10,
       "titleFontSize": 10,
+
       "gridOpacity": 0.5
     }
   },
@@ -46,26 +52,36 @@
         "x": {
           "field": "year",
           "type": "ordinal",
+
           "axis": {
             "title": null,
-            "labelAngle": -60,
-            "labelFontSize": 9
+            "labelAngle": -45,
+            "labelFontSize": 9,
+            "labelOverlap": "greedy"
           }
         },
 
         "y": {
           "field": "avg_ticket",
           "type": "quantitative",
+
           "scale": {
-            "domain": [0, 175]
+            "domain": [0, 130]
           },
+
           "axis": {
             "title": "Average Ticket Price (AUD)",
             "orient": "left",
+
             "format": "$d",
-            "values": [0, 20, 40, 60, 80, 100, 120, 140, 160],
+
+            "tickCount": 7,
+
             "titleColor": "#c8c2b4",
-            "labelColor": "#c8c2b4"
+            "labelColor": "#c8c2b4",
+
+            "titlePadding": 8,
+            "labelPadding": 4
           }
         },
 
@@ -100,13 +116,13 @@
       "mark": {
         "type": "rule",
         "color": "#555548",
-        "strokeDash": [4, 4],
-        "strokeWidth": 1.2
+        "strokeWidth": 1.2,
+        "strokeDash": [4, 4]
       },
 
       "encoding": {
         "y": {
-          "datum": 100
+          "datum": 77
         }
       }
     },
@@ -115,7 +131,7 @@
       "data": {
         "values": [
           {
-            "year": "2019",
+            "year": "2004",
             "label": "2019 baseline = 100"
           }
         ]
@@ -124,8 +140,8 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 8,
-        "dy": -8,
+        "dx": 4,
+        "dy": -14,
         "font": "Space Mono, monospace",
         "fontSize": 9,
         "fontStyle": "italic",
@@ -139,7 +155,7 @@
         },
 
         "y": {
-          "datum": 100
+          "datum": 77
         },
 
         "text": {
@@ -151,8 +167,8 @@
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 2.5,
         "color": "#FFD166",
+        "strokeWidth": 2.5,
         "interpolate": "monotone"
       },
 
@@ -167,15 +183,25 @@
           "type": "quantitative",
 
           "scale": {
-            "domain": [0, 175]
+            "domain": [0, 160]
           },
 
           "axis": {
             "title": "Revenue Index (2019 = 100)",
+
             "orient": "right",
-            "values": [0, 20, 40, 60, 80, 100, 120, 140, 160],
+
+            "tickCount": 8,
+
+            "offset": 15,
+            "titlePadding": 20,
+            "labelPadding": 8,
+
             "titleColor": "#FFD166",
-            "labelColor": "#FFD166"
+            "labelColor": "#b09940",
+
+            "titleFontSize": 10,
+            "labelFontSize": 10
           }
         }
       }
@@ -185,7 +211,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 70,
+        "size": 55,
         "color": "#FFD166"
       },
 
@@ -207,8 +233,13 @@
           },
           {
             "field": "revenue_index",
-            "title": "Revenue Index",
+            "title": "Revenue Index (2019 = 100)",
             "format": ".1f"
+          },
+          {
+            "field": "avg_ticket",
+            "title": "Average Ticket Price (AUD)",
+            "format": "$.0f"
           }
         ]
       }
@@ -224,11 +255,13 @@
       "mark": {
         "type": "text",
         "align": "right",
-        "dx": -8,
-        "dy": -12,
+        "dx": -12,
+        "dy": -18,
+
         "font": "Space Mono, monospace",
         "fontWeight": "bold",
         "fontSize": 10,
+
         "color": "#FFD166"
       },
 
@@ -244,10 +277,9 @@
         },
 
         "text": {
-          "expr": "'Index ' + round(datum.revenue_index) + ' ▲'"
+          "expr": "'Index ' + format(datum.revenue_index,'.0f') + ' ▲'"
         }
       }
     }
   ]
 }
-
