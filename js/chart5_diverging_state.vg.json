@@ -28,10 +28,7 @@
         },
         "x": {
           "field": "revenue_vs_pop", "type": "quantitative",
-          "axis": {
-            "title": "Revenue Share minus Population Share (percentage points)",
-            "grid": true, "titleFontSize": 11
-          },
+          "axis": { "title": "Revenue Share minus Population Share (percentage points)", "grid": true, "titleFontSize": 11 },
           "scale": { "domain": [-8, 8] }
         },
         "color": {
@@ -53,7 +50,8 @@
     {
       "mark": {
         "type": "text",
-        "font": "Space Mono, monospace", "fontSize": 12, "fontWeight": "bold"
+        "font": "Space Mono, monospace", "fontSize": 12, "fontWeight": "bold",
+        "color": "#ffffff"
       },
       "encoding": {
         "y": {
@@ -62,10 +60,6 @@
         },
         "x": { "field": "revenue_vs_pop", "type": "quantitative" },
         "text": { "field": "revenue_vs_pop", "type": "quantitative", "format": "+.1f" },
-        "color": {
-          "condition": { "test": "datum.revenue_vs_pop >= 0", "value": "#06D6A0" },
-          "value": "#ffffff"
-        },
         "align": {
           "condition": { "test": "datum.revenue_vs_pop >= 0", "value": "left" },
           "value": "right"
