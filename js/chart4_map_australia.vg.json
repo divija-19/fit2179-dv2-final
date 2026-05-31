@@ -1,47 +1,73 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 530,
+  "height": 520,
   "config": {
     "background": "transparent",
     "view": { "stroke": "transparent" },
     "legend": {
       "labelColor": "#c8c2b4", "titleColor": "#e0dcd4",
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 13, "titleFontSize": 11,
-      "padding": 8, "cornerRadius": 3,
-      "fillColor": "rgba(10,10,8,0.7)", "strokeColor": "#2a2a22"
+      "labelFontSize": 12, "titleFontSize": 11,
+      "padding": 10, "cornerRadius": 3,
+      "fillColor": "rgba(8,8,6,0.82)", "strokeColor": "#2e2e26"
     }
   },
-  "projection": { "type": "mercator", "center": [132, -27], "scale": 800 },
+  "projection": {
+    "type": "mercator",
+    "center": [134, -28],
+    "scale": 820
+  },
   "layer": [
     {
-      "data": { "url": "js/ne_110m.json", "format": { "type": "topojson", "feature": "countries" } },
-      "mark": { "type": "geoshape", "fill": "#0d0d0c", "stroke": "#181816", "strokeWidth": 0.5 }
+      "data": {
+        "url": "js/ne_110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "transform": [{ "filter": "datum.id !== 36" }],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#0a0a09",
+        "stroke": "#141412",
+        "strokeWidth": 0.4
+      }
     },
     {
-      "data": { "url": "js/ne_110m.json", "format": { "type": "topojson", "feature": "countries" } },
+      "data": {
+        "url": "js/ne_110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
       "transform": [{ "filter": "datum.id === 36" }],
-      "mark": { "type": "geoshape", "fill": "#181816", "stroke": "#2a2a22", "strokeWidth": 1.5 }
+      "mark": {
+        "type": "geoshape",
+        "fill": "#1c1c18",
+        "stroke": "#32322a",
+        "strokeWidth": 1.2
+      }
     },
     {
       "data": { "url": "data/state_data.json" },
-      "mark": { "type": "circle", "opacity": 0.78, "stroke": "#ffffff", "strokeWidth": 0.5, "strokeOpacity": 0.15 },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.82,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8,
+        "strokeOpacity": 0.18
+      },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
         "size": {
           "field": "revenue_b", "type": "quantitative",
-          "scale": { "range": [600, 7800] },
+          "scale": { "range": [500, 8000] },
           "legend": {
             "title": "Revenue (AUD Billion)",
             "labelFormat": "$.2f",
             "orient": "top-left",
             "labelFontSize": 12, "titleFontSize": 11,
-            "symbolOpacity": 0.7,
-            "symbolFillColor": "#888",
-            "fillColor": "rgba(10,10,8,0.75)", "strokeColor": "#2a2a22",
-            "padding": 8
+            "symbolOpacity": 0.75,
+            "symbolFillColor": "#888877",
+            "padding": 10
           }
         },
         "color": {
@@ -62,8 +88,12 @@
     {
       "data": { "url": "data/festival_locations.json" },
       "mark": {
-        "type": "point", "shape": "diamond", "filled": true,
-        "size": 55, "opacity": 0.85, "strokeWidth": 0
+        "type": "point",
+        "shape": "diamond",
+        "filled": true,
+        "size": 60,
+        "opacity": 0.9,
+        "strokeWidth": 0
       },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
@@ -78,9 +108,8 @@
             "title": "Festival Genre",
             "orient": "bottom-right",
             "labelFontSize": 12, "titleFontSize": 11,
-            "symbolSize": 80, "symbolType": "diamond",
-            "fillColor": "rgba(10,10,8,0.75)", "strokeColor": "#2a2a22",
-            "padding": 8
+            "symbolSize": 90, "symbolType": "diamond",
+            "padding": 10
           }
         },
         "tooltip": [
@@ -96,19 +125,18 @@
       "mark": {
         "type": "text",
         "font": "Space Mono, monospace",
-        "fontSize": 11, "fontWeight": "bold",
-        "color": "#ffffff", "opacity": 1,
-        "stroke": "#0a0a08", "strokeWidth": 2.5, "strokeOpacity": 0.6
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "opacity": 1,
+        "stroke": "#080806",
+        "strokeWidth": 3,
+        "strokeOpacity": 0.7
       },
       "encoding": {
         "longitude": { "field": "label_lon", "type": "quantitative" },
         "latitude": { "field": "label_lat", "type": "quantitative" },
-        "text": { "field": "state_abbr", "type": "nominal" },
-        "size": {
-          "field": "revenue_b", "type": "quantitative",
-          "scale": { "range": [11, 14] },
-          "legend": null
-        }
+        "text": { "field": "state_abbr", "type": "nominal" }
       }
     }
   ]
