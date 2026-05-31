@@ -1,40 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Stacked horizontal bar showing severe and major impact of challenges on festival organisers. Slider highlights by minimum severe impact threshold. Source: Creative Australia Soundcheck 2024.",
-  "width": "container",
-  "height": 330,
+  "width": "container", "height": 340,
   "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent" },
+    "background": "transparent", "view": {"stroke": "transparent"},
     "axis": {
-      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 12, "titleFontSize": 11
     },
     "legend": {
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 13, "titleFontSize": 11
     }
   },
-  "data": { "url": "data/challenges_stacked.json" },
+  "data": {"url": "data/challenges_stacked.json"},
   "params": [{
     "name": "min_sev",
     "value": 0,
-    "bind": { "input": "range", "min": 0, "max": 40, "step": 5, "name": "Highlight: Minimum Severe Impact ≥  " }
+    "bind": {"input": "range", "min": 0, "max": 45, "step": 5,
+      "name": "Highlight challenges where Severe Impact ≥ "}
   }],
-  "mark": { "type": "bar", "cornerRadiusTopRight": 3, "cornerRadiusBottomRight": 3 },
+  "mark": {"type": "bar", "cornerRadiusTopRight": 3, "cornerRadiusBottomRight": 3},
   "encoding": {
     "y": {
       "field": "challenge", "type": "nominal",
-      "sort": { "field": "severe_pct", "order": "descending" },
-      "axis": { "title": null, "labelFontSize": 12, "labelLimit": 260, "labelColor": "#b0aaa0" }
+      "sort": {"field": "severe_pct", "order": "descending"},
+      "axis": {"title": null, "labelFontSize": 12, "labelLimit": 260, "labelColor": "#c0bab0"}
     },
     "x": {
       "field": "pct", "type": "quantitative",
-      "axis": { "title": "% of festival organisers reporting this challenge", "titleFontSize": 11 },
-      "scale": { "domain": [0, 90] }
+      "axis": {"title": "Percentage of Festival Organisers Reporting this Challenge (%)", "titleFontSize": 11},
+      "scale": {"domain": [0, 90]}
     },
     "color": {
       "field": "impact_type", "type": "nominal",
@@ -42,18 +40,18 @@
         "domain": ["Severe impact", "Major impact"],
         "range": ["#EF233C", "#5a1e28"]
       },
-      "legend": { "title": "Impact Level", "orient": "bottom-right", "labelFontSize": 13 }
+      "legend": {"title": "Impact Level", "orient": "bottom-right"}
     },
     "opacity": {
-      "condition": { "test": "datum.severe_pct >= min_sev", "value": 1 },
-      "value": 0.12
+      "condition": {"test": "datum.severe_pct >= min_sev", "value": 1},
+      "value": 0.1
     },
-    "order": { "field": "impact_type", "sort": "descending" },
+    "order": {"field": "impact_type", "sort": "descending"},
     "tooltip": [
-      { "field": "challenge", "title": "Challenge" },
-      { "field": "impact_type", "title": "Impact Level" },
-      { "field": "pct", "title": "Organisers Impacted (%)", "format": ".0f" },
-      { "field": "severe_pct", "title": "Severe Impact (%)", "format": ".0f" }
+      {"field": "challenge", "title": "Challenge"},
+      {"field": "impact_type", "title": "Impact Level"},
+      {"field": "pct", "title": "Organisers Affected (%)", "format": ".0f"},
+      {"field": "severe_pct", "title": "Severe Impact (%)", "format": ".0f"}
     ]
   }
 }
