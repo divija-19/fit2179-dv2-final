@@ -43,7 +43,7 @@
          "encoding": {"y": {"datum": 43, "type": "quantitative"}}},
         {
           "data": {"values": [{"year": 2017, "v": 43}]},
-          "mark": {"type": "text", "align": "left", "dx": 6, "dy": -12, "color": "#666",
+          "mark": {"type": "text", "align": "left", "dx": 6, "dy": -12, "color": "#FFFFFF",
             "font": "Space Mono, monospace", "fontSize": 9, "fontStyle": "italic"},
           "encoding": {
             "x": {"field": "year", "type": "quantitative", "scale": {"domain": {"param": "brush2"}}},
