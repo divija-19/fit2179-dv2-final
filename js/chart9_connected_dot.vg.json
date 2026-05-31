@@ -1,43 +1,65 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Connected dot plot comparing ticket-buyer age shares pre-COVID (2018-19) vs post-COVID (2022-23). Click legend to highlight. Sources: Live Performance Australia; Creative Australia Soundcheck 2024.",
   "width": "container",
-  "height": 280,
+  "height": 320,
   "config": {
     "background": "transparent",
     "view": { "stroke": "transparent" },
     "axis": {
-      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
-      "labelColor": "#7a7570", "titleColor": "#7a7570",
-      "labelFont": "Inter, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 13, "titleFontSize": 11
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 14, "titleFontSize": 11, "gridOpacity": 0.5
     },
     "legend": {
-      "labelColor": "#7a7570", "titleColor": "#7a7570",
-      "labelFont": "Inter, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 12, "titleFontSize": 11
+      "labelColor": "#d0cac0", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 13, "titleFontSize": 11
     }
   },
-  "data": { "url": "data/age_demographics.json" },
-  "params": [{
-    "name": "period_hl",
-    "select": { "type": "point", "fields": ["period"] },
-    "bind": "legend"
-  }],
   "layer": [
     {
-      "mark": { "type": "line", "color": "#3a3a32", "strokeWidth": 2 },
+      "data": {
+        "values": [
+          {"age_group": "18–24",  "pre": 32, "post": 20},
+          {"age_group": "25–34",  "pre": 28, "post": 35},
+          {"age_group": "35–44",  "pre": 20, "post": 24},
+          {"age_group": "45–54",  "pre": 13, "post": 14},
+          {"age_group": "55+",    "pre": 7,  "post": 7}
+        ]
+      },
+      "mark": { "type": "rule", "color": "#3a3a30", "strokeWidth": 3 },
       "encoding": {
-        "x": { "field": "age_group", "type": "nominal", "axis": { "title": "Age Group", "labelFontSize": 13 } },
-        "y": { "field": "pct", "type": "quantitative", "axis": { "title": "Share of Ticket Buyers (%)" } },
-        "detail": { "field": "age_group", "type": "nominal" }
+        "x": {
+          "field": "age_group", "type": "nominal",
+          "sort": ["18–24","25–34","35–44","45–54","55+"],
+          "axis": { "title": "Age Group", "labelFontSize": 14 }
+        },
+        "y": {
+          "field": "pre", "type": "quantitative",
+          "scale": { "domain": [0, 42] },
+          "axis": { "title": "Share of All Ticket Buyers (%)", "titleFontSize": 11 }
+        },
+        "y2": { "field": "post" }
       }
     },
     {
-      "mark": { "type": "point", "filled": true, "size": 130 },
+      "data": { "url": "data/age_demographics.json" },
+      "params": [{
+        "name": "period_hl",
+        "select": { "type": "point", "fields": ["period"] },
+        "bind": "legend"
+      }],
+      "mark": { "type": "point", "filled": true, "size": 200 },
       "encoding": {
-        "x": { "field": "age_group", "type": "nominal" },
-        "y": { "field": "pct", "type": "quantitative" },
+        "x": {
+          "field": "age_group", "type": "nominal",
+          "sort": ["18–24","25–34","35–44","45–54","55+"]
+        },
+        "y": {
+          "field": "pct", "type": "quantitative",
+          "scale": { "domain": [0, 42] }
+        },
         "color": {
           "field": "period", "type": "nominal",
           "scale": {
@@ -46,21 +68,35 @@
           },
           "legend": { "title": "Period — click to highlight", "orient": "top-right" }
         },
-        "opacity": { "condition": { "param": "period_hl", "value": 1 }, "value": 0.1 },
+        "opacity": {
+          "condition": { "param": "period_hl", "value": 1 },
+          "value": 0.1
+        },
         "tooltip": [
           { "field": "age_group", "title": "Age Group" },
           { "field": "period", "title": "Period" },
-          { "field": "pct", "title": "Share (%)", "format": ".0f" }
+          { "field": "pct", "title": "Share of Ticket Buyers (%)", "format": ".0f" }
         ]
       }
     },
     {
-      "data": { "values": [{ "age_group": "18–24", "pct": 32, "lbl": "−12pp" }] },
-      "mark": { "type": "text", "align": "center", "dy": -18, "color": "#EF233C", "font": "Space Mono, monospace", "fontSize": 11, "fontWeight": "bold" },
+      "data": { "values": [
+        {"age_group": "18–24", "pct": 34, "lbl": "−12pp", "clr": "#EF233C"},
+        {"age_group": "25–34", "pct": 37, "lbl": "+7pp",  "clr": "#06D6A0"},
+        {"age_group": "35–44", "pct": 26, "lbl": "+4pp",  "clr": "#06D6A0"}
+      ]},
+      "mark": {
+        "type": "text", "align": "center", "dy": -14,
+        "font": "Space Mono, monospace", "fontSize": 12, "fontWeight": "bold"
+      },
       "encoding": {
-        "x": { "field": "age_group", "type": "nominal" },
+        "x": {
+          "field": "age_group", "type": "nominal",
+          "sort": ["18–24","25–34","35–44","45–54","55+"]
+        },
         "y": { "field": "pct", "type": "quantitative" },
-        "text": { "field": "lbl" }
+        "text": { "field": "lbl" },
+        "color": { "field": "clr", "type": "nominal", "scale": null }
       }
     }
   ]
