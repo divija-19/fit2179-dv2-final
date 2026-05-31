@@ -1,31 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "width": "container",
   "height": 300,
   "padding": 10,
 
   "config": {
     "background": "transparent",
-
     "view": {
       "stroke": "transparent"
     },
-
     "axis": {
       "domainColor": "#2a2a24",
       "gridColor": "#1c1c16",
       "tickColor": "#2a2a24",
-
       "labelColor": "#c8c2b4",
       "titleColor": "#d0cac0",
-
       "labelFont": "DM Sans, sans-serif",
       "titleFont": "Space Mono, monospace",
-
       "labelFontSize": 10,
       "titleFontSize": 10,
-
       "gridOpacity": 0.5
     }
   },
@@ -52,7 +45,6 @@
         "x": {
           "field": "year",
           "type": "ordinal",
-
           "axis": {
             "title": null,
             "labelAngle": -45,
@@ -64,22 +56,16 @@
         "y": {
           "field": "avg_ticket",
           "type": "quantitative",
-
           "scale": {
             "domain": [0, 130]
           },
-
           "axis": {
             "title": "Average Ticket Price (AUD)",
             "orient": "left",
-
             "format": "$d",
-
             "tickCount": 7,
-
             "titleColor": "#c8c2b4",
             "labelColor": "#c8c2b4",
-
             "titlePadding": 8,
             "labelPadding": 4
           }
@@ -188,20 +174,17 @@
 
           "axis": {
             "title": "Revenue Index (2019 = 100)",
-
             "orient": "right",
 
-            "tickCount": 8,
+            "labels": false,
+            "ticks": false,
+            "grid": false,
 
             "offset": 15,
             "titlePadding": 20,
-            "labelPadding": 8,
 
             "titleColor": "#FFD166",
-            "labelColor": "#b09940",
-
-            "titleFontSize": 10,
-            "labelFontSize": 10
+            "titleFontSize": 10
           }
         }
       }
@@ -257,11 +240,9 @@
         "align": "right",
         "dx": -12,
         "dy": -18,
-
         "font": "Space Mono, monospace",
         "fontWeight": "bold",
         "fontSize": 10,
-
         "color": "#FFD166"
       },
 
