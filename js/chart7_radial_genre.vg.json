@@ -50,7 +50,7 @@
           "legend": {
             "title": "Number of Festivals",
             "orient": "bottom-right",
-            "values": [27, 53, 91, 123]
+            "values": [25, 50, 90, 120]
           }
         },
         "color": {
