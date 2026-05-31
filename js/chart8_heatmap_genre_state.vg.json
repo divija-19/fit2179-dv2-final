@@ -1,57 +1,50 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Heatmap of genre share by Australian state. Diverging colour: orange = above national average, purple = below. Source: Creative Australia Soundcheck 2024.",
-  "width": "container",
-  "height": 340,
+  "width": "container", "height": 340,
   "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent" },
+    "background": "transparent", "view": {"stroke": "transparent"},
     "axis": {
-      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 13, "titleFontSize": 11
     },
     "legend": {
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 11, "titleFontSize": 11
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 12, "titleFontSize": 11
     }
   },
-  "data": { "url": "data/genre_by_state.json" },
+  "data": {"url": "data/genre_by_state.json"},
   "layer": [
     {
-      "mark": { "type": "rect", "cornerRadius": 2 },
+      "mark": {"type": "rect", "cornerRadius": 2},
       "encoding": {
-        "x": { "field": "state", "type": "nominal", "axis": { "title": null, "labelFontSize": 13 } },
-        "y": {
-          "field": "genre", "type": "nominal",
-          "sort": ["Electronic", "Rock", "Country", "Indie", "Other"],
-          "axis": { "title": null, "labelFontSize": 13 }
-        },
+        "x": {"field": "state", "type": "nominal", "axis": {"title": null, "labelFontSize": 13}},
+        "y": {"field": "genre", "type": "nominal",
+          "sort": ["Electronic","Rock","Country","Indie","Other"],
+          "axis": {"title": null, "labelFontSize": 13}},
         "color": {
           "field": "pct", "type": "quantitative",
-          "scale": { "scheme": "purpleorange", "domainMid": 20 },
-          "legend": { "title": "Share (%)" }
+          "scale": {"scheme": "purpleorange", "domainMid": 20},
+          "legend": {"title": "Share (%)"}
         },
         "tooltip": [
-          { "field": "state", "title": "State" },
-          { "field": "genre", "title": "Genre" },
-          { "field": "pct", "title": "Share (%)", "format": ".0f" }
+          {"field": "state", "title": "State"},
+          {"field": "genre", "title": "Genre"},
+          {"field": "pct", "title": "Share of State Festivals (%)", "format": ".0f"}
         ]
       }
     },
     {
-      "mark": { "type": "text", "fontSize": 11, "fontWeight": "bold", "font": "Inter, sans-serif" },
+      "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "font": "DM Sans, sans-serif"},
       "encoding": {
-        "x": { "field": "state", "type": "nominal" },
-        "y": {
-          "field": "genre", "type": "nominal",
-          "sort": ["Electronic", "Rock", "Country", "Indie", "Other"]
-        },
-        "text": { "field": "pct", "type": "quantitative", "format": ".0f" },
+        "x": {"field": "state", "type": "nominal"},
+        "y": {"field": "genre", "type": "nominal",
+          "sort": ["Electronic","Rock","Country","Indie","Other"]},
+        "text": {"field": "pct", "type": "quantitative", "format": ".0f"},
         "color": {
-          "condition": { "test": "datum.pct > 26", "value": "#0a0a08" },
+          "condition": {"test": "datum.pct > 26", "value": "#0a0a08"},
           "value": "#d8d4ce"
         }
       }
