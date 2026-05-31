@@ -9,7 +9,7 @@
       "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
       "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 11, "titleFontSize": 11, "gridOpacity": 0.5
+      "labelFontSize": 10, "titleFontSize": 10, "gridOpacity": 0.5
     }
   },
   "data": { "url": "data/lpa_annual.json" },
@@ -20,27 +20,23 @@
       "encoding": {
         "x": {
           "field": "year", "type": "ordinal",
-          "axis": {
-            "title": null,
-            "labelAngle": -55,
-            "labelFontSize": 10,
-            "labelOverlap": "parity"
-          }
+          "axis": { "title": null, "labelAngle": -60, "labelFontSize": 9, "labelOverlap": true }
         },
         "y": {
           "field": "avg_ticket", "type": "quantitative",
           "axis": {
-            "title": "Avg Ticket Price (AUD)",
+            "title": "Average Ticket Price (AUD)",
             "format": "$d",
             "titleColor": "#c8c2b4",
             "titleFontSize": 10,
-            "labelFontSize": 10
+            "labelFontSize": 10,
+            "titlePadding": 8
           },
-          "scale": { "domain": [40, 140] }
+          "scale": { "domain": [0, 135] }
         },
         "color": {
           "condition": { "test": "datum.avg_ticket >= 90", "value": "#F4A261" },
-          "value": "#2a2a22"
+          "value": "#2e2e28"
         },
         "tooltip": [
           { "field": "year", "title": "Year" },
@@ -50,26 +46,27 @@
       }
     },
     {
-      "mark": { "type": "rule", "color": "#484840", "strokeWidth": 1, "strokeDash": [4, 4] },
+      "mark": { "type": "rule", "color": "#555548", "strokeWidth": 1.2, "strokeDash": [4, 4] },
       "encoding": {
-        "y": { "datum": 100, "type": "quantitative", "scale": { "domain": [0, 185] } }
+        "y": { "datum": 100, "type": "quantitative", "scale": { "domain": [0, 175] } }
       }
     },
     {
-      "data": { "values": [{ "year": "2019" }] },
+      "data": { "values": [{ "year": "2004", "lbl": "2019 baseline = 100" }] },
       "mark": {
-        "type": "text", "align": "center", "dy": -8, "dx": 0,
-        "color": "#666", "font": "Space Mono, monospace", "fontSize": 9, "fontStyle": "italic",
-        "baseline": "bottom"
+        "type": "text", "align": "left", "dx": 4, "dy": -8,
+        "color": "#888", "font": "Space Mono, monospace", "fontSize": 9, "fontStyle": "italic"
       },
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
-        "y": { "datum": 100, "type": "quantitative", "scale": { "domain": [0, 185] } },
-        "text": { "value": "2019 = 100" }
+        "y": { "datum": 100, "type": "quantitative", "scale": { "domain": [0, 175] } },
+        "text": { "field": "lbl" }
       }
     },
     {
-      "mark": { "type": "line", "color": "#FFD166", "strokeWidth": 2.5, "interpolate": "monotone" },
+      "mark": {
+        "type": "line", "color": "#FFD166", "strokeWidth": 2.5, "interpolate": "monotone"
+      },
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
         "y": {
@@ -79,20 +76,18 @@
             "titleColor": "#FFD166",
             "titleFontSize": 10,
             "labelFontSize": 10,
-            "labelColor": "#FFD166"
+            "labelColor": "#b09940",
+            "titlePadding": 8
           },
-          "scale": { "domain": [0, 185] }
+          "scale": { "domain": [0, 175] }
         }
       }
     },
     {
-      "mark": { "type": "point", "filled": true, "size": 55, "color": "#FFD166" },
+      "mark": { "type": "point", "filled": true, "size": 50, "color": "#FFD166" },
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
-        "y": {
-          "field": "revenue_index", "type": "quantitative",
-          "scale": { "domain": [0, 185] }
-        },
+        "y": { "field": "revenue_index", "type": "quantitative", "scale": { "domain": [0, 175] } },
         "tooltip": [
           { "field": "year", "title": "Year" },
           { "field": "revenue_index", "title": "Revenue Index (2019 = 100)", "format": ".1f" },
@@ -108,10 +103,7 @@
       },
       "encoding": {
         "x": { "field": "year", "type": "ordinal" },
-        "y": {
-          "field": "revenue_index", "type": "quantitative",
-          "scale": { "domain": [0, 185] }
-        },
+        "y": { "field": "revenue_index", "type": "quantitative", "scale": { "domain": [0, 175] } },
         "text": { "value": "Index 152 ▲" }
       }
     }
