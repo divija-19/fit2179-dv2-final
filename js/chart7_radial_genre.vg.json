@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 320,
+  "height": 340,
   "config": {
     "background": "transparent",
     "view": { "stroke": "transparent" },
@@ -9,28 +9,49 @@
       "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
       "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 13, "titleFontSize": 11
+      "labelFontSize": 13, "titleFontSize": 11, "gridOpacity": 0.4
     },
     "legend": {
       "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 13, "titleFontSize": 11
+      "labelFontSize": 12, "titleFontSize": 11
     }
   },
   "data": { "url": "data/genres.json" },
   "layer": [
     {
-      "mark": { "type": "bar", "cornerRadiusTopRight": 4, "cornerRadiusBottomRight": 4 },
+      "mark": { "type": "rule", "strokeWidth": 2 },
       "encoding": {
         "y": {
           "field": "genre", "type": "nominal",
           "sort": { "field": "pct", "order": "descending" },
           "axis": { "title": null, "labelFontSize": 14, "labelColor": "#d0cac0" }
         },
+        "x": { "datum": 0, "type": "quantitative" },
+        "x2": { "field": "pct", "type": "quantitative" },
+        "color": { "value": "#2e2e28" }
+      }
+    },
+    {
+      "mark": { "type": "point", "filled": true, "opacity": 0.92 },
+      "encoding": {
+        "y": {
+          "field": "genre", "type": "nominal",
+          "sort": { "field": "pct", "order": "descending" }
+        },
         "x": {
           "field": "pct", "type": "quantitative",
           "axis": { "title": "Share of all 535 festivals (%)", "titleFontSize": 11 },
-          "scale": { "domain": [0, 28] }
+          "scale": { "domain": [0, 30] }
+        },
+        "size": {
+          "field": "festivals", "type": "quantitative",
+          "scale": { "range": [120, 900] },
+          "legend": {
+            "title": "Number of Festivals",
+            "orient": "bottom-right",
+            "values": [27, 53, 91, 123]
+          }
         },
         "color": {
           "field": "genre", "type": "nominal",
@@ -49,7 +70,7 @@
     },
     {
       "mark": {
-        "type": "text", "align": "left", "dx": 6,
+        "type": "text", "align": "left", "dx": 12,
         "font": "Space Mono, monospace", "fontSize": 12, "fontWeight": "bold"
       },
       "encoding": {
@@ -58,8 +79,11 @@
           "sort": { "field": "pct", "order": "descending" }
         },
         "x": { "field": "pct", "type": "quantitative" },
-        "text": { "field": "pct", "type": "quantitative", "format": ".0f" },
-        "color": { "value": "#d0cac0" }
+        "text": {
+          "calculate": "datum.pct + '% · ' + datum.festivals + ' festivals'",
+          "type": "nominal"
+        },
+        "color": { "value": "#c8c2b4" }
       }
     }
   ]
