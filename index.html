@@ -143,7 +143,7 @@
     <!-- Chart 13 -->
     <div class="gf fi">
       <div class="box w">
-        <div class="box-tag">Chart 13 &nbsp;&middot;&nbsp; Revenue Split Over Time &nbsp;&middot;&nbsp; Source: Live Performance Australia</div>
+        <div class="box-tag">Chart 04 &nbsp;&middot;&nbsp; Revenue Split Over Time &nbsp;&middot;&nbsp; Source: Live Performance Australia</div>
         <div class="box-h">How the Industry Split Over Time</div>
         <p class="box-p"><strong>What:</strong> A stacked area chart separating contemporary music revenue (gold) from all other live performance categories (dark). Each area uses position on the y-axis to encode revenue magnitude; the stacked total represents all Australian live performance revenue. <strong>Why:</strong> Contemporary music — rock, pop, hip-hop, and electronic — grew from 43% of total revenue in 2017 to <strong>54% in 2024</strong>, driven by mega stadium tours including Taylor Swift, Coldplay, and P!nk.</p>
         <div id="chart13"></div>
@@ -170,7 +170,7 @@
     <!-- Chart 4 -->
     <div class="gf fi">
       <div class="box t">
-        <div class="box-tag">Chart 04 &nbsp;&middot;&nbsp; Geographic Map (Mercator projection) &nbsp;&middot;&nbsp; Sources: Live Performance Australia; Creative Australia Soundcheck 2024</div>
+        <div class="box-tag">Chart 05 &nbsp;&middot;&nbsp; Geographic Map (Mercator projection) &nbsp;&middot;&nbsp; Sources: Live Performance Australia; Creative Australia Soundcheck 2024</div>
         <div class="box-h">Where the Music Lives</div>
         <p class="box-p"><strong>What:</strong> A proportional symbol map. Circles are positioned by state capital coordinates; their <strong>size and colour both encode total revenue</strong> — larger and brighter means more revenue. Diamond markers show 39 major festivals, colour-coded by genre. <strong>Why:</strong> The spatial encoding immediately reveals the east-coast dominance of NSW and VIC, and the near-absence of festivals in central and northern Australia.</p>
         <div class="ihint">
@@ -191,14 +191,14 @@
     <!-- Charts 5 + 6 -->
     <div class="g2 fi">
       <div class="box">
-        <div class="box-tag">Chart 05 &nbsp;&middot;&nbsp; Revenue Share vs Population Share &nbsp;&middot;&nbsp; Sources: LPA 2023; ABS 2021 Census</div>
+        <div class="box-tag">Chart 06 &nbsp;&middot;&nbsp; Revenue Share vs Population Share &nbsp;&middot;&nbsp; Sources: LPA 2023; ABS 2021 Census</div>
         <div class="box-h">Who Punches Above Their Weight?</div>
         <p class="box-p"><strong>What:</strong> A diverging bar chart. Each bar shows how far a state's revenue share deviates from its population share. <strong style="color:#06D6A0">Teal bars point right</strong> — the state earns more revenue than its population predicts. <strong style="color:#EF233C">Red bars point left</strong> — it under-performs. Labels show the exact deviation in percentage points. <strong>Why:</strong> Victoria outperforms its population share by 4.3 points. Queensland under-performs by 4.2 points despite hosting 92 festivals.</p>
         <div id="chart5"></div>
         <div class="chart-cap">Mark: bar (diverging) + text labels &nbsp;&middot;&nbsp; Channel: length = deviation, colour hue = direction &nbsp;&middot;&nbsp; Hover for full revenue and population share values</div>
       </div>
       <div class="box w">
-        <div class="box-tag">Chart 06 &nbsp;&middot;&nbsp; Festival Count &amp; Revenue Efficiency &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024</div>
+        <div class="box-tag">Chart 07 &nbsp;&middot;&nbsp; Festival Count &amp; Revenue Efficiency &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024</div>
         <div class="box-h">Festival Density by State</div>
         <p class="box-p"><strong>What:</strong> A lollipop chart. The line length encodes festival count; the dot colour encodes revenue per festival in AUD millions (using a red sequential scale — darker dot = more revenue per event). Labels show the exact festival count. <strong>Why:</strong> The Northern Territory has only two festivals, but its massive revenue per event ($41M) reveals that large commercial events dominate there. NSW and VIC lead in count but are mid-range on efficiency.</p>
         <div id="chart6"></div>
@@ -209,7 +209,7 @@
     <!-- Chart 12 -->
     <div class="gf fi">
       <div class="box dim">
-        <div class="box-tag">Chart 12 &nbsp;&middot;&nbsp; State Revenue vs Attendance (Bubble Scatter) &nbsp;&middot;&nbsp; Source: Live Performance Australia 2023</div>
+        <div class="box-tag">Chart 08 &nbsp;&middot;&nbsp; State Revenue vs Attendance (Bubble Scatter) &nbsp;&middot;&nbsp; Source: Live Performance Australia 2023</div>
         <div class="box-h">Revenue vs Attendance vs Festival Count</div>
         <p class="box-p"><strong>What:</strong> Each bubble represents one Australian state or territory. The x-axis encodes total attendance in millions; the y-axis encodes total revenue in AUD billions. <strong>Bubble size</strong> encodes the number of festivals (larger = more festivals). <strong>Bubble colour</strong> uses a red-yellow-green diverging scale to show whether a state's revenue share exceeds its population share — green = over-performing, red = under-performing. State abbreviations are positioned above each bubble. <strong>Why:</strong> NSW and VIC cluster top-right, far ahead of all other states — confirming the structural concentration shown in Charts 4 and 5.</p>
         <div id="chart12"></div>
@@ -243,14 +243,14 @@
     <!-- Charts 7 + 8 -->
     <div class="g2 fi">
       <div class="box p">
-        <div class="box-tag">Chart 07 &nbsp;&middot;&nbsp; Genre Breakdown (Radial Bar) &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024</div>
+        <div class="box-tag">Chart 09 &nbsp;&middot;&nbsp; Genre Breakdown (Radial Bar) &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024</div>
         <div class="box-h">Australia's Festival Diet</div>
-        <p class="box-p"><strong>What:</strong> A radial bar chart. Each arc segment covers an angle proportional to genre share (theta channel). The radius of each arc also encodes share — so both angle and radius carry the same data, reinforcing the size difference. Colour hue distinguishes genres. <strong>Why:</strong> Country music's 19% share — larger than Indie and nearly as large as Rock — reflects Australia's strong regional and rural festival scene, particularly in Queensland.</p>
+        <p class="box-p"><strong>What:</strong>A horizontal dot (lollipop-style) chart comparing music genres by their share of Australia’s 535 festivals. Each genre is shown as a point along the x-axis, where position represents percentage share. Colour distinguishes genres, and dot size reflects the number of festivals. <strong>Why:</strong>This design improves clarity and makes comparisons easier than the previous radial chart. A shared linear x-axis allows accurate visual comparison between genres, while separating them into rows reduces clutter and makes differences in festival share easier to interpret.</p>
         <div id="chart7"></div>
         <div class="chart-cap">Mark: arc &nbsp;&middot;&nbsp; Channel: theta = share %, radius = share % (redundant encoding), colour hue = genre &nbsp;&middot;&nbsp; Hover for festival count</div>
       </div>
       <div class="box">
-        <div class="box-tag">Chart 08 &nbsp;&middot;&nbsp; Genre by State (Annotated Heatmap) &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024</div>
+        <div class="box-tag">Chart 10 &nbsp;&middot;&nbsp; Genre by State (Annotated Heatmap) &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024</div>
         <div class="box-h">What Each State Loves</div>
         <p class="box-p"><strong>What:</strong> An annotated heatmap. Each cell shows a genre–state combination. Cell colour uses a <strong>purple-to-orange diverging scale</strong> centred on the national average (20%): orange cells are above average, purple cells are below. Numbers inside each cell give the exact percentage share. <strong>Why:</strong> Victoria and Tasmania are Australia's most electronic states. Queensland is the country music heartland at 31% — more than double Victoria's 10%.</p>
         <div id="chart8"></div>
@@ -263,7 +263,7 @@
     <!-- Chart 9 -->
     <div class="gf fi">
       <div class="box p">
-        <div class="box-tag">Chart 09 &nbsp;&middot;&nbsp; Age Demographics (Connected Dot Plot) &nbsp;&middot;&nbsp; Sources: LPA; Creative Australia Soundcheck 2024</div>
+        <div class="box-tag">Chart 11 &nbsp;&middot;&nbsp; Age Demographics (Connected Dot Plot) &nbsp;&middot;&nbsp; Sources: LPA; Creative Australia Soundcheck 2024</div>
         <div class="box-h">The Demographic Shift</div>
         <p class="box-p"><strong>What:</strong> A connected dot plot. Each age group has two coloured dots — <strong style="color:#9B5DE5">purple = Pre-COVID (2018–19)</strong>, <strong style="color:#FFD166">gold = Post-COVID (2022–23)</strong>. The connecting line shows the direction and size of change for each cohort. Text annotations highlight the three largest shifts. Click either period in the legend to isolate that era. <strong>Why:</strong> The 18–24 cohort lost 12 percentage points — the largest single demographic shift. The 25–34 cohort gained 7 points, becoming the new dominant audience.</p>
         <div class="ihint">
@@ -302,7 +302,7 @@
     <!-- Chart 10 -->
     <div class="gf fi">
       <div class="box r">
-        <div class="box-tag">Chart 10 &nbsp;&middot;&nbsp; Organiser Challenges (Stacked Bar + Slider) &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024 (535 festivals surveyed)</div>
+        <div class="box-tag">Chart 12 &nbsp;&middot;&nbsp; Organiser Challenges (Stacked Bar + Slider) &nbsp;&middot;&nbsp; Source: Creative Australia Soundcheck 2024 (535 festivals surveyed)</div>
         <div class="box-h">What Is Killing Australian Festivals</div>
         <p class="box-p"><strong>What:</strong> A stacked horizontal bar chart. Bars are sorted by severity. The <strong style="color:#EF233C">bright red segment</strong> encodes the percentage of festival organisers who rated that challenge as having a severe impact; the <strong style="color:#5a1e28">dark segment</strong> shows major impact. The combined bar length equals total percentage affected. The slider highlights challenges where severe impact reaches the chosen threshold — bars that do not meet it are dimmed to 10% opacity. <strong>Why:</strong> Rising operational costs affect <strong>78% of all festival organisers</strong> when both impact levels are combined — the highest of any challenge surveyed.</p>
         <div class="ihint">
@@ -317,7 +317,7 @@
     <!-- Chart 11 -->
     <div class="gf fi" style="margin-top:20px;">
       <div class="box w">
-        <div class="box-tag">Chart 11 &nbsp;&middot;&nbsp; Contemporary Music Share (Overview + Detail) &nbsp;&middot;&nbsp; Source: Live Performance Australia</div>
+        <div class="box-tag">Chart 13 &nbsp;&middot;&nbsp; Contemporary Music Share (Overview + Detail) &nbsp;&middot;&nbsp; Source: Live Performance Australia</div>
         <div class="box-h">Big Tours Eat Everything</div>
         <p class="box-p"><strong>What:</strong> An overview+detail chart showing contemporary music's share of total live performance revenue from 2004 to 2024. The filled area uses position (y-axis) to encode share percentage. The dashed line marks the 2017 baseline at 43%. Data labels annotate the 2017 baseline, the 2020 COVID dip, and the 2024 peak. The bottom mini-chart is a navigation brush — drag a selection to zoom the detail view above. <strong>Why:</strong> Contemporary music reached <strong>54% of all live performance revenue in 2024</strong>. Taylor Swift's Eras Tour alone generated an estimated $50M+ in Australian ticket revenue, structurally shifting the industry towards mega stadium tours and away from mid-size festivals.</p>
         <div class="ihint">
