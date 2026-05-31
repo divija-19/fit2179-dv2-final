@@ -1,74 +1,59 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Year-on-year percentage change in live music revenue 2005-2024. Source: Live Performance Australia.",
-  "width": "container",
-  "height": 250,
+  "width": "container", "height": 260,
   "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent" },
+    "background": "transparent", "view": {"stroke": "transparent"},
     "axis": {
-      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 11, "titleFontSize": 11
     }
   },
-  "data": { "url": "data/lpa_annual.json" },
-  "transform": [ { "filter": "datum.year > 2004" } ],
+  "data": {"url": "data/lpa_annual.json"},
+  "transform": [{"filter": "datum.year > 2004"}],
   "layer": [
     {
-      "mark": {
-        "type": "bar",
-        "cornerRadiusTopRight": 2, "cornerRadiusBottomRight": 2,
-        "cornerRadiusTopLeft": 2, "cornerRadiusBottomLeft": 2
-      },
+      "mark": {"type": "bar", "cornerRadiusTopRight": 2, "cornerRadiusTopLeft": 2, "cornerRadiusBottomRight": 2, "cornerRadiusBottomLeft": 2},
       "encoding": {
-        "x": {
-          "field": "year", "type": "ordinal",
-          "axis": { "title": null, "labelAngle": -45, "labelFontSize": 11 }
-        },
-        "y": {
-          "field": "rev_pct_change", "type": "quantitative",
-          "axis": { "title": "Year-on-year revenue change (%)", "grid": true, "titleFontSize": 11 },
-          "scale": { "domain": [-85, 70] }
-        },
+        "x": {"field": "year", "type": "ordinal",
+          "axis": {"title": null, "labelAngle": -45, "labelFontSize": 11}},
+        "y": {"field": "rev_pct_change", "type": "quantitative",
+          "axis": {"title": "Year-on-year Revenue Change (%)", "grid": true, "titleFontSize": 11},
+          "scale": {"domain": [-85, 100]}},
         "color": {
-          "condition": { "test": "datum.rev_pct_change < 0", "value": "#EF233C" },
+          "condition": {"test": "datum.rev_pct_change < 0", "value": "#EF233C"},
           "value": "#06D6A0"
         },
         "tooltip": [
-          { "field": "year", "title": "Year" },
-          { "field": "rev_pct_change", "title": "Change from prior year (%)", "format": "+.1f" },
-          { "field": "revenue_b", "title": "Total Revenue ($B)", "format": "$.2f" }
+          {"field": "year", "title": "Year"},
+          {"field": "rev_pct_change", "title": "Change from Prior Year (%)", "format": "+.1f"},
+          {"field": "revenue_b", "title": "Total Revenue (AUD Billion)", "format": "$.2f"}
         ]
       }
     },
     {
-      "mark": { "type": "rule", "color": "#383830", "strokeWidth": 1, "strokeDash": [4, 4] },
-      "encoding": { "y": { "datum": 0, "type": "quantitative" } }
+      "mark": {"type": "rule", "color": "#383830", "strokeWidth": 1, "strokeDash": [4,4]},
+      "encoding": {"y": {"datum": 0, "type": "quantitative"}}
     },
     {
-      "data": { "values": [{ "year": "2020", "v": -76.9, "lbl": "−77%" }] },
-      "mark": {
-        "type": "text", "align": "center", "dy": -14,
-        "color": "#EF233C", "font": "Space Mono, monospace", "fontSize": 10, "fontWeight": "bold"
-      },
+      "data": {"values": [{"year": "2020", "v": -76.9}]},
+      "mark": {"type": "text", "align": "center", "dy": -12, "color": "#EF233C",
+        "font": "Space Mono, monospace", "fontSize": 10, "fontWeight": "bold"},
       "encoding": {
-        "x": { "field": "year", "type": "ordinal" },
-        "y": { "field": "v", "type": "quantitative" },
-        "text": { "field": "lbl" }
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "v", "type": "quantitative"},
+        "text": {"value": "−77%"}
       }
     },
     {
-      "data": { "values": [{ "year": "2023", "v": 61.5, "lbl": "+62%" }] },
-      "mark": {
-        "type": "text", "align": "center", "dy": -14,
-        "color": "#06D6A0", "font": "Space Mono, monospace", "fontSize": 10, "fontWeight": "bold"
-      },
+      "data": {"values": [{"year": "2022", "v": 95.9}]},
+      "mark": {"type": "text", "align": "center", "dy": -12, "color": "#06D6A0",
+        "font": "Space Mono, monospace", "fontSize": 10, "fontWeight": "bold"},
       "encoding": {
-        "x": { "field": "year", "type": "ordinal" },
-        "y": { "field": "v", "type": "quantitative" },
-        "text": { "field": "lbl" }
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "v", "type": "quantitative"},
+        "text": {"value": "+96%"}
       }
     }
   ]
