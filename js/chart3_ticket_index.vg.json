@@ -1,10 +1,15 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 300,
+  "padding": 10,
+
   "config": {
     "background": "transparent",
-    "view": {"stroke": "transparent"},
+    "view": {
+      "stroke": "transparent"
+    },
     "axis": {
       "domainColor": "#2a2a24",
       "gridColor": "#1c1c16",
@@ -18,11 +23,17 @@
       "gridOpacity": 0.5
     }
   },
-  "data": {"url": "data/lpa_annual.json"},
-  "resolve": {
-    "scale": {"y": "independent"},
-    "axis": {"y": "independent"}
+
+  "data": {
+    "url": "data/lpa_annual.json"
   },
+
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  },
+
   "layer": [
     {
       "mark": {
@@ -30,6 +41,7 @@
         "cornerRadiusTopLeft": 2,
         "cornerRadiusTopRight": 2
       },
+
       "encoding": {
         "x": {
           "field": "year",
@@ -37,35 +49,43 @@
           "axis": {
             "title": null,
             "labelAngle": -60,
-            "labelFontSize": 9,
-            "labelOverlap": true
+            "labelFontSize": 9
           }
         },
+
         "y": {
           "field": "avg_ticket",
           "type": "quantitative",
+          "scale": {
+            "domain": [0, 175]
+          },
           "axis": {
             "title": "Average Ticket Price (AUD)",
             "orient": "left",
             "format": "$d",
+            "values": [0, 20, 40, 60, 80, 100, 120, 140, 160],
             "titleColor": "#c8c2b4",
-            "titleFontSize": 10,
-            "labelFontSize": 10,
-            "titlePadding": 8,
-            "labelPadding": 4
-          },
-          "scale": {"domain": [0, 135]}
+            "labelColor": "#c8c2b4"
+          }
         },
+
         "color": {
-          "condition": {"test": "datum.avg_ticket >= 90", "value": "#F4A261"},
+          "condition": {
+            "test": "datum.avg_ticket >= 90",
+            "value": "#F4A261"
+          },
           "value": "#2e2e28"
         },
+
         "tooltip": [
-          {"field": "year", "title": "Year"},
+          {
+            "field": "year",
+            "title": "Year"
+          },
           {
             "field": "avg_ticket",
             "title": "Average Ticket Price (AUD)",
-            "format": "$d"
+            "format": "$.0f"
           },
           {
             "field": "revenue_index",
@@ -75,114 +95,159 @@
         ]
       }
     },
+
     {
       "mark": {
         "type": "rule",
         "color": "#555548",
-        "strokeWidth": 1.2,
-        "strokeDash": [4, 4]
+        "strokeDash": [4, 4],
+        "strokeWidth": 1.2
       },
+
       "encoding": {
         "y": {
-          "datum": 100,
-          "type": "quantitative",
-          "scale": {"domain": [0, 175]}
+          "datum": 100
         }
       }
     },
+
     {
-      "data": {"values": [{"year": "2004", "lbl": "2019 baseline = 100"}]},
+      "data": {
+        "values": [
+          {
+            "year": "2019",
+            "label": "2019 baseline = 100"
+          }
+        ]
+      },
+
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 4,
+        "dx": 8,
         "dy": -8,
-        "color": "#888",
         "font": "Space Mono, monospace",
         "fontSize": 9,
-        "fontStyle": "italic"
+        "fontStyle": "italic",
+        "color": "#888888"
       },
+
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
-        "y": {
-          "datum": 100,
-          "type": "quantitative",
-          "scale": {"domain": [0, 175]}
+        "x": {
+          "field": "year",
+          "type": "ordinal"
         },
-        "text": {"field": "lbl"}
-      }
-    },
-    {
-      "mark": {
-        "type": "line",
-        "color": "#FFD166",
-        "strokeWidth": 2.5,
-        "interpolate": "monotone"
-      },
-      "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
+
         "y": {
-          "field": "revenue_index",
-          "type": "quantitative",
-          "axis": {
-            "title": "Revenue Index (2019 = 100)",
-            "orient": "right",
-            "titleColor": "#FFD166",
-            "labelColor": "#b09940",
-            "titleFontSize": 10,
-            "labelFontSize": 10,
-            "titlePadding": 8,
-            "labelPadding": 6
-          },
-          "scale": {"domain": [0, 175]}
+          "datum": 100
+        },
+
+        "text": {
+          "field": "label"
         }
       }
     },
+
     {
-      "mark": {"type": "point", "filled": true, "size": 50, "color": "#FFD166"},
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "color": "#FFD166",
+        "interpolate": "monotone"
+      },
+
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+
         "y": {
           "field": "revenue_index",
           "type": "quantitative",
-          "scale": {"domain": [0, 175]}
-        },
-        "tooltip": [
-          {"field": "year", "title": "Year"},
-          {
-            "field": "revenue_index",
+
+          "scale": {
+            "domain": [0, 175]
+          },
+
+          "axis": {
             "title": "Revenue Index (2019 = 100)",
-            "format": ".1f"
+            "orient": "right",
+            "values": [0, 20, 40, 60, 80, 100, 120, 140, 160],
+            "titleColor": "#FFD166",
+            "labelColor": "#FFD166"
+          }
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 70,
+        "color": "#FFD166"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+
+        "y": {
+          "field": "revenue_index",
+          "type": "quantitative"
+        },
+
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Year"
           },
           {
-            "field": "avg_ticket",
-            "title": "Average Ticket Price (AUD)",
-            "format": "$d"
+            "field": "revenue_index",
+            "title": "Revenue Index",
+            "format": ".1f"
           }
         ]
       }
     },
+
     {
-      "data": {"values": [{"year": "2024", "revenue_index": 151.6}]},
+      "transform": [
+        {
+          "filter": "datum.year == '2024'"
+        }
+      ],
+
       "mark": {
         "type": "text",
         "align": "right",
-        "dx": -4,
-        "dy": -13,
-        "color": "#FFD166",
+        "dx": -8,
+        "dy": -12,
         "font": "Space Mono, monospace",
+        "fontWeight": "bold",
         "fontSize": 10,
-        "fontWeight": "bold"
+        "color": "#FFD166"
       },
+
       "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+
         "y": {
           "field": "revenue_index",
-          "type": "quantitative",
-          "scale": {"domain": [0, 175]}
+          "type": "quantitative"
         },
-        "text": {"value": "Index 152 ▲"}
+
+        "text": {
+          "expr": "'Index ' + round(datum.revenue_index) + ' ▲'"
+        }
       }
     }
   ]
 }
+
