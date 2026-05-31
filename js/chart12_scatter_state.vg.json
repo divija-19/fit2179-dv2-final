@@ -1,54 +1,62 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Scatter plot: state revenue vs attendance. Bubble size = number of festivals. Shows which states are efficient vs which underperform. Source: Live Performance Australia 2023.",
-  "width": "container",
-  "height": 300,
+  "width": "container", "height": 400,
   "config": {
-    "background": "transparent",
-    "view": { "stroke": "transparent" },
+    "background": "transparent", "view": {"stroke": "transparent"},
     "axis": {
-      "domainColor": "#282822", "gridColor": "#1e1e18", "tickColor": "#282822",
-      "labelColor": "#9a9590", "titleColor": "#7a7570",
-      "labelFont": "DM Sans, Inter, sans-serif", "titleFont": "Space Mono, monospace",
+      "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
+      "labelFontSize": 12, "titleFontSize": 11
+    },
+    "legend": {
+      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
       "labelFontSize": 12, "titleFontSize": 11
     }
   },
-  "data": { "url": "data/state_data.json" },
+  "data": {"url": "data/state_data.json"},
   "layer": [
     {
-      "mark": { "type": "point", "filled": true, "opacity": 0.85 },
+      "mark": {"type": "point", "filled": true, "opacity": 0.88},
       "encoding": {
-        "x": { "field": "attendance_m", "type": "quantitative", "axis": { "title": "Total Attendance (millions)", "format": ".1f" } },
-        "y": { "field": "revenue_b", "type": "quantitative", "axis": { "title": "Revenue (AUD Billion)", "format": "$,.2f" } },
+        "x": {"field": "attendance_m", "type": "quantitative",
+          "axis": {"title": "Total Attendance (millions)", "format": ".1f", "titleFontSize": 11},
+          "scale": {"domain": [-0.5, 12]}},
+        "y": {"field": "revenue_b", "type": "quantitative",
+          "axis": {"title": "Total Revenue (AUD Billion)", "format": "$,.2f", "titleFontSize": 11},
+          "scale": {"domain": [-0.05, 1.35]}},
         "size": {
           "field": "festivals", "type": "quantitative",
-          "scale": { "range": [100, 1800] },
-          "legend": { "title": "Festivals", "orient": "bottom-right", "labelFontSize": 11 }
+          "scale": {"range": [100, 2400]},
+          "legend": {"title": "Number of Festivals", "orient": "bottom-right",
+            "labelFontSize": 12, "values": [10, 50, 100, 149]}
         },
         "color": {
           "field": "revenue_vs_pop", "type": "quantitative",
-          "scale": { "scheme": "redyellowgreen", "domain": [-5, 5] },
-          "legend": { "title": "Revenue vs Population (pp)", "orient": "top-right", "labelFontSize": 11 }
+          "scale": {"scheme": "redyellowgreen", "domain": [-5, 5]},
+          "legend": {"title": "Revenue vs Population Share (pp)",
+            "orient": "top-left", "gradientLength": 100}
         },
         "tooltip": [
-          { "field": "state", "title": "State" },
-          { "field": "revenue_b", "title": "Revenue ($B)", "format": "$.3f" },
-          { "field": "attendance_m", "title": "Attendance (M)", "format": ".2f" },
-          { "field": "festivals", "title": "Festivals" },
-          { "field": "revenue_vs_pop", "title": "Revenue vs Population (pp)", "format": "+.1f" }
+          {"field": "state", "title": "State"},
+          {"field": "revenue_b", "title": "Total Revenue (AUD Billion)", "format": "$.3f"},
+          {"field": "attendance_m", "title": "Total Attendance (millions)", "format": ".2f"},
+          {"field": "festivals", "title": "Number of Festivals"},
+          {"field": "revenue_vs_pop", "title": "Revenue vs Population Share (pp)", "format": "+.1f"}
         ]
       }
     },
     {
-      "mark": { "type": "text", "dy": -14, "fontSize": 11, "font": "Space Mono, monospace", "fontWeight": "bold" },
+      "mark": {"type": "text", "dy": -16, "fontSize": 12,
+        "font": "Space Mono, monospace", "fontWeight": "bold"},
       "encoding": {
-        "x": { "field": "attendance_m", "type": "quantitative" },
-        "y": { "field": "revenue_b", "type": "quantitative" },
-        "text": { "field": "state_abbr", "type": "nominal" },
+        "x": {"field": "attendance_m", "type": "quantitative"},
+        "y": {"field": "revenue_b", "type": "quantitative"},
+        "text": {"field": "state_abbr", "type": "nominal"},
         "color": {
-          "field": "revenue_vs_pop", "type": "quantitative",
-          "scale": { "scheme": "redyellowgreen", "domain": [-5, 5] },
-          "legend": null
+          "condition": {"test": "datum.revenue_vs_pop >= 0", "value": "#06D6A0"},
+          "value": "#EF233C"
         }
       }
     }
