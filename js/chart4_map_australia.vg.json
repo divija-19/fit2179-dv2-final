@@ -18,7 +18,7 @@
   "projection": {
     "type": "mercator",
     "center": [133, -28],
-    "scale": 760
+    "scale": 690
   },
   "layer": [
     {
@@ -44,6 +44,21 @@
         "fill": "#1e1e18",
         "stroke": "#3a3a2e",
         "strokeWidth": 1.5
+      }
+    },
+    {
+      "data": {
+        "url": "js/ne_110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "transform": [
+        { "filter": "datum.id === 36" }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#5b5b52",
+        "strokeWidth": 1.1
       }
     },
     {
@@ -87,18 +102,15 @@
         "fontSize": 11,
         "fontWeight": "bold",
         "font": "Space Mono, monospace",
-        "dy": -22
+        "dy": -22,
+        "fill": "#ffffff",
+        "stroke": "#000000",
+        "strokeWidth": 1
       },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
         "latitude": { "field": "lat", "type": "quantitative" },
-        "text": { "field": "state_abbr", "type": "nominal" },
-        "color": {
-          "field": "revenue_b",
-          "type": "quantitative",
-          "scale": { "scheme": "goldorange", "domain": [0, 1.2] },
-          "legend": null
-        }
+        "text": { "field": "state_abbr", "type": "nominal" }
       }
     },
     {
