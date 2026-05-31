@@ -18,7 +18,7 @@
   "projection": {
     "type": "mercator",
     "center": [133, -28],
-    "scale": 690
+    "scale": 660
   },
   "layer": [
     {
@@ -49,16 +49,15 @@
     {
       "data": {
         "url": "js/ne_110m.json",
-        "format": { "type": "topojson", "feature": "countries" }
+        "format": { "type": "topojson", "mesh": "countries" }
       },
-      "transform": [
-        { "filter": "datum.id === 36" }
-      ],
+      "transform": [ { "filter": "datum.id === 36" } ],
       "mark": {
         "type": "geoshape",
         "fill": null,
-        "stroke": "#5b5b52",
-        "strokeWidth": 1.1
+        "stroke": "#ffffff",
+        "strokeWidth": 0.9,
+        "opacity": 0.65
       }
     },
     {
@@ -99,13 +98,13 @@
       "data": { "url": "data/state_data.json" },
       "mark": {
         "type": "text",
-        "fontSize": 11,
+        "fontSize": 13,
         "fontWeight": "bold",
         "font": "Space Mono, monospace",
         "dy": -22,
         "fill": "#ffffff",
-        "stroke": "#000000",
-        "strokeWidth": 1
+        "stroke": "#ffffff",
+        "strokeWidth": 2.2
       },
       "encoding": {
         "longitude": { "field": "lon", "type": "quantitative" },
