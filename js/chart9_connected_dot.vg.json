@@ -1,13 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container", "height": 300,
+  "width": "container",
+  "height": 320,
   "config": {
-    "background": "transparent", "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "view": { "stroke": "transparent" },
     "axis": {
       "domainColor": "#2a2a24", "gridColor": "#1c1c16", "tickColor": "#2a2a24",
-      "labelColor": "#b0aa9e", "titleColor": "#d0cac0",
+      "labelColor": "#c8c2b4", "titleColor": "#d0cac0",
       "labelFont": "DM Sans, sans-serif", "titleFont": "Space Mono, monospace",
-      "labelFontSize": 13, "titleFontSize": 11
+      "labelFontSize": 14, "titleFontSize": 11, "gridOpacity": 0.5
     },
     "legend": {
       "labelColor": "#d0cac0", "titleColor": "#d0cac0",
@@ -15,63 +17,80 @@
       "labelFontSize": 13, "titleFontSize": 11
     }
   },
-  "data": {"url": "data/age_demographics.json"},
+  "data": { "url": "data/age_demographics.json" },
   "params": [{
     "name": "period_hl",
-    "select": {"type": "point", "fields": ["period"]},
+    "select": { "type": "point", "fields": ["period"] },
     "bind": "legend"
   }],
   "layer": [
     {
-      "mark": {"type": "line", "color": "#2a2a22", "strokeWidth": 2.5},
+      "transform": [
+        { "pivot": "period", "value": "pct", "groupby": ["age_group"] }
+      ],
+      "mark": { "type": "rule", "color": "#3a3a30", "strokeWidth": 2.5 },
       "encoding": {
-        "x": {"field": "age_group", "type": "nominal",
-          "axis": {"title": "Age Group", "labelFontSize": 13}},
-        "y": {"field": "pct", "type": "quantitative",
-          "axis": {"title": "Share of All Ticket Buyers (%)", "titleFontSize": 11}},
-        "detail": {"field": "age_group", "type": "nominal"}
+        "x": {
+          "field": "age_group", "type": "nominal",
+          "sort": ["18–24","25–34","35–44","45–54","55+"],
+          "axis": { "title": "Age Group", "labelFontSize": 14 }
+        },
+        "y": {
+          "field": "Pre-COVID (2018–19)", "type": "quantitative",
+          "axis": { "title": "Share of All Ticket Buyers (%)", "titleFontSize": 11 },
+          "scale": { "domain": [0, 42] }
+        },
+        "y2": { "field": "Post-COVID (2022–23)" }
       }
     },
     {
-      "mark": {"type": "point", "filled": true, "size": 150},
+      "mark": { "type": "point", "filled": true, "size": 180 },
       "encoding": {
-        "x": {"field": "age_group", "type": "nominal"},
-        "y": {"field": "pct", "type": "quantitative"},
+        "x": {
+          "field": "age_group", "type": "nominal",
+          "sort": ["18–24","25–34","35–44","45–54","55+"]
+        },
+        "y": {
+          "field": "pct", "type": "quantitative",
+          "scale": { "domain": [0, 42] }
+        },
         "color": {
           "field": "period", "type": "nominal",
           "scale": {
             "domain": ["Pre-COVID (2018–19)", "Post-COVID (2022–23)"],
             "range": ["#9B5DE5", "#FFD166"]
           },
-          "legend": {"title": "Period (click to highlight)", "orient": "top-right"}
+          "legend": { "title": "Period — click to highlight", "orient": "top-right" }
         },
         "opacity": {
-          "condition": {"param": "period_hl", "value": 1},
-          "value": 0.07
+          "condition": { "param": "period_hl", "value": 1 },
+          "value": 0.1
         },
         "tooltip": [
-          {"field": "age_group", "title": "Age Group"},
-          {"field": "period", "title": "Period"},
-          {"field": "pct", "title": "Share of Ticket Buyers (%)", "format": ".0f"}
+          { "field": "age_group", "title": "Age Group" },
+          { "field": "period", "title": "Period" },
+          { "field": "pct", "title": "Share of Ticket Buyers (%)", "format": ".0f" }
         ]
       }
     },
     {
-      "data": {"values": [
-        {"age_group": "18–24", "pct": 32, "lbl": "−12pp"},
-        {"age_group": "25–34", "pct": 35, "lbl": "+7pp"},
-        {"age_group": "35–44", "pct": 24, "lbl": "+4pp"}
+      "data": { "values": [
+        { "age_group": "18–24", "pct": 36, "lbl": "−12pp", "clr": "#EF233C" },
+        { "age_group": "25–34", "pct": 39, "lbl": "+7pp",  "clr": "#06D6A0" },
+        { "age_group": "35–44", "pct": 28, "lbl": "+4pp",  "clr": "#06D6A0" }
       ]},
-      "mark": {"type": "text", "align": "center", "dy": -16,
-        "font": "Space Mono, monospace", "fontSize": 11, "fontWeight": "bold"},
+      "mark": {
+        "type": "text", "align": "center", "dy": -14,
+        "font": "Space Mono, monospace", "fontSize": 12, "fontWeight": "bold"
+      },
       "encoding": {
-        "x": {"field": "age_group", "type": "nominal"},
-        "y": {"field": "pct", "type": "quantitative"},
-        "text": {"field": "lbl"},
-        "color": {
-          "condition": {"test": "datum.lbl[0] === '+'", "value": "#06D6A0"},
-          "value": "#EF233C"
-        }
+        "x": {
+          "field": "age_group", "type": "nominal",
+          "sort": ["18–24","25–34","35–44","45–54","55+"]
+        },
+        "y": { "field": "pct", "type": "quantitative" },
+        "text": { "field": "lbl" },
+        "color": { "field": "clr", "type": "nominal", "scale": null }
       }
     }
   ]
